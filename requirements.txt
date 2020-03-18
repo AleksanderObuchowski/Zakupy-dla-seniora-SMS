@@ -3,3 +3,4 @@ flask-mongoengine==0.9.5
 Flask-RESTful==0.3.8
 Flask-SQLAlchemy==2.4.1
 twilio==6.36.0
+mysqlclient==1.4.6

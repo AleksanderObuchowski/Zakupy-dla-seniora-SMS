@@ -17,6 +17,13 @@ def register_api_resources(api):
     from zakupy_dla_seniora.main.resources import Main
     api.add_resource(Main, '/main_api')
 
+    from zakupy_dla_seniora.users.resources import UserRegistration
+    api.add_resource(UserRegistration, '/register')
+
+    from zakupy_dla_seniora.sms_code_verification.resources import SendSMSCode, CheckSMSCode
+    api.add_resource(SendSMSCode, '/send_code')
+    api.add_resource(CheckSMSCode, '/check_code')
+
 
 def create_app(config_class=Config):
     app = Flask(__name__, static_url_path='/static')
