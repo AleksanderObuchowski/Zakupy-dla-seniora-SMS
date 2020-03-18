@@ -59,10 +59,24 @@ def function_name():
     return "<h1>Hello</h1>"
 ```
 Now you need to register your routes blueprint in `/src/zakupy_dla_seniora/__init__.py` file. 
-Open this file and in `create_app` function add following lines:
+Open this file and in `register_blueprints` function add following lines:
 ```python
 from zakupy_dla_seniora.your_module_name.routes import your_module_name
 app.register_blueprint(your_module_name)
+```
+### Adding resources
+```python
+from flask_restful import Resource
+
+class YourResourceName(Resource):
+    def http_method(self):  # probably post() or get()
+        return {'success': True, 'other_data': data}
+```
+Now you need to register your resource in `src/zakupy_dla_seniora/__init__.py` file.
+Open this file and in `register_api_resources` function add following lines:
+```python
+from zakupy_dla_seniora.your_module_name.resources import YourResourceName
+api.add_resource(YourResourceName, '/path/to/your/resource')
 ```
 ### Adding models
 If your module needs to store information in database, you need to consider creating `models.py` file inside it. 
