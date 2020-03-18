@@ -10,7 +10,7 @@ Next run    `CREATE DATABASE zakupy_dla_seniora_db`   And then you need to creat
 `CREATE USER 'artifai'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';`   
 with your password.
 Finally, grant your user privileges to run queries on created database:   
-`GRANT ALL PRIVILEGES ON zakupy_dla_seriora_db.* TO 'artifai'@'localhost';`
+`GRANT ALL PRIVILEGES ON zakupy_dla_seniora_db.* TO 'artifai'@'localhost';`
 
 ### Install MongoDB
 First you need to install and configure MongoDB. To do this you can just follow this tutorial (steps 1 and 2 are just enough):   
