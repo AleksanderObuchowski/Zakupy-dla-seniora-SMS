@@ -1,9 +1,7 @@
 from zakupy_dla_seniora import sql_db as db
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timezone
-
-
-verification_code = 999
+from random import randint
 
 
 class User(db.Model):
@@ -25,9 +23,7 @@ class User(db.Model):
         self.set_password(password)
         self.phone = phone
         self.create_date = datetime.now(timezone.utc)
-        global verification_code
-        verification_code += 1
-        self.verification_code = verification_code
+        self.verification_code = randint(1000, 9999)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)

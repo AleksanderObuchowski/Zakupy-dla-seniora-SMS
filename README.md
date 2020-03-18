@@ -1,51 +1,5 @@
 # zakupy-dla-seniora-backend
 
-## Features
-
-### Users
-
-##### Model Fields
-    
-|id|name|first_name|last_name|password_hash|create_date|phone|verification_code|verified|points|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|int|varchar|varchar|varchar|varchar|datetime|varchar|int|bool|int|
-
-
-##### Endpoints
-- POST: `/register`
-    - params: 
-        
-        |name|first_name|last_name|password|phone|
-        |:---:|:---:|:---:|:---:|:---:|
-        |string|string|string|string|string|string|
-      
-    - answer:
-    
-        |success|message|
-        |:---:|:---:
-        |boolean|string|
-        
-### SMS Code Verification
-
-##### Endpoints
-- POST: `/send_code`
-    - params: phone (string)
-    - answer:
-    
-        |success|code|number|
-        |:---:|:---:|:---:|
-        |boolean|int|string|
-    
-- POST: `/check_code`
-    - params: phone (string), code (int)
-    - answer:
-    
-        |success|message|
-        |:---:|:---:
-        |boolean|string|
-    
-    
- 
 ## App configuration
 
 ### Install mysql
@@ -169,3 +123,48 @@ def function_name_1():
 def function_name_2():
     # stuff
 ```
+
+## Features
+
+### Users
+
+##### Model Fields
+    
+|id|name|first_name|last_name|password_hash|create_date|phone|verification_code|verified|points|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|int|varchar|varchar|varchar|varchar|datetime|varchar|int|bool|int|
+
+
+##### Endpoints
+- POST: `/register`
+    - params: 
+        
+        |name|first_name|last_name|password|phone|
+        |:---:|:---:|:---:|:---:|:---:|
+        |string|string|string|string|string|string|
+      
+    - answer:
+    
+        |success|message|
+        |:---:|:---:
+        |boolean|string|
+        
+### SMS Code Verification
+
+##### Endpoints
+- POST: `/send_code`
+    - params: phone (string)
+    - answer:
+    
+        |success|code|number|
+        |:---:|:---:|:---:|
+        |boolean|int|string|
+    
+- POST: `/check_code`
+    - params: phone (string), code (int)
+    - answer:
+    
+        |success|message|
+        |:---:|:---:
+        |boolean|string|
+    
