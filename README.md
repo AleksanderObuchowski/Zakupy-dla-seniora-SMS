@@ -20,7 +20,7 @@ you run the app.
 
 ### Make config file
 Application is using __config.py__ file for flack variables initialization (like database connection string). 
-This file should be placed in _/src/config.py_ and should be defined as follows:   
+This file should be placed in `/src/zakupy_dla_seniora/config.py` and should be defined as follows:   
 ```python
 mysql_user_name = 'artifai'
 mysql_user_password = ''  # put your mysql artifai user password
