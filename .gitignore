@@ -9,3 +9,4 @@ config.py
 
 # ignore programming environments
 .vscode/
+.idea/
