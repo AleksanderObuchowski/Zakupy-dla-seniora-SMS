@@ -32,6 +32,7 @@ twilio_auth_token = '3ab51dd71c656bec8f0dabeccede044d'  # put your twilio auth_t
 class Config:
     SECRET_KEY = token_hex(16)#  '' # put your secret key
     SQLALCHEMY_DATABASE_URI = f'mysql://{mysql_user_name}:{mysql_user_password}@{mysql_server}/{mysql_database}?charset=utf8mb4'
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
 ```
 
 ### Generate your secret key
@@ -153,7 +154,20 @@ def function_name_2():
     - answer:
 
         |success|message|
-        |:---:|:---:
+        |:---:|:---:|
         |boolean|string|
 
+### BoardView
+- GET: `/board`
+    - params:
+
+        |latitude|longitude|radius|
+        |:---:|:---:|:---:|
+        |float|float|float|
+
+    - answer:
+
+        |success|data|
+        |:---:|:---:|
+        |boolean|JSON|
 
