@@ -15,18 +15,15 @@ sending_parser.add_argument('From', help='This field cannot be blank.', required
 class ReceiveSMS(Resource):
     def post(self):
         message_content = sending_parser.parse_args()['Body']
-        phone_number  = sending_parser.parse_args()['From']
+        phone_number = sending_parser.parse_args()['From']
 
-        print(phone_number)
-
-        message_location,lat,lon = get_location(message_content)
-        print(message_content)
+        message_location, lat, lon = get_location(message_content)
         new_message = Messages(
-            message_content = message_content,
-            phone_number= phone_number,
-            message_location = message_location,
-            message_location_lat = lat,
-            message_location_lon = lon,
+            message_content=message_content,
+            phone_number=phone_number,
+            message_location=message_location,
+            message_location_lat=lat,
+            message_location_lon=lon,
         )
         new_message.save()
 

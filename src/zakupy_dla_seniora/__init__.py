@@ -1,10 +1,8 @@
 from flask import Flask
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
-# from flask_mongoengine import MongoEngine
 from zakupy_dla_seniora.config import Config
 
-# mongo_db = MongoEngine()
 sql_db = SQLAlchemy()
 
 
@@ -25,7 +23,10 @@ def register_api_resources(api):
     api.add_resource(CheckSMSCode, '/check_code')
 
     from zakupy_dla_seniora.sms_handler.resources import ReceiveSMS
-    api.add_resource(ReceiveSMS,'/sms')
+    api.add_resource(ReceiveSMS, '/sms')
+
+    from zakupy_dla_seniora.board_view.resources import BoardView
+    api.add_resource(BoardView, '/board')
 
 
 def create_app(config_class=Config):
@@ -36,7 +37,6 @@ def create_app(config_class=Config):
     register_blueprints(app)
     register_api_resources(api)
 
-    # mongo_db.init_app(app)
     sql_db.init_app(app)
 
     return app

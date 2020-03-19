@@ -1,5 +1,5 @@
 from flask_restful import Resource, reqparse
-from zakupy_dla_seniora.orders.models import Order
+from zakupy_dla_seniora.orders.models import Orders
 
 
 register_parser = reqparse.RequestParser()
@@ -7,7 +7,6 @@ register_parser.add_argument('user_id', help='This field cannot be blank', requi
 register_parser.add_argument('message_id', help='This field cannot be blank', required=True)
 register_parser.add_argument('order_status', help='This field cannot be blank', required=True)
 register_parser.add_argument('order_date', help='This field cannot be blank', required=True)
-
 
 
 class OrderCreation(Resource):
