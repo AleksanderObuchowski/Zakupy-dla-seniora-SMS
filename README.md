@@ -23,7 +23,7 @@ you run the app.
 Application is using __config.py__ file for flack variables initialization (like database connection string).
 This file should be placed in _/src/config.py_ and should be defined as follows:   
 =======
-Application is using __config.py__ file for flack variables initialization (like database connection string). 
+Application is using __config.py__ file for flack variables initialization (like database connection string).
 This file should be placed in `/src/zakupy_dla_seniora/config.py` and should be defined as follows:   
 >>>>>>> 97748fa70bfcdbdc85e276a82b8091f7e2f4fa93
 ```python
