@@ -2,9 +2,11 @@ from zakupy_dla_seniora import sql_db as db
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timezone
 from random import randint
+import zakupy_dla_seniora.orders.models
 
 
 class User(db.Model):
+    __tablename__ = 'user'
     id = db.Column('id', db.Integer, primary_key=True)
     name = db.Column('name', db.String(35), unique=True, nullable=False)
     first_name = db.Column('first_name', db.String(35), nullable=False)
@@ -15,6 +17,8 @@ class User(db.Model):
     verification_code = db.Column('verification_code', db.Integer)
     verified = db.Column('verified', db.Boolean, default=False)
     points = db.Column('points', db.Integer, default=0)
+
+    orders = db.relationship('Orders', backref = 'user', cascade = 'all, delete-orphan', lazy = 'dynamic')
 
     def __init__(self, name, first_name, last_name, password, phone):
         self.name = name
