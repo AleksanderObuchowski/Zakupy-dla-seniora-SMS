@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 class Messages(db.Model):
     __tablename__ = 'message'
     id = db.Column('id', db.Integer, primary_key=True)
-    message_content = db.Column('message_content', db.String(164), unique=True, nullable=False)
+    message_content = db.Column('message_content', db.String(1600), nullable=False)
     message_date = db.Column('message_date', db.DateTime)
     message_location = db.Column('message_location', db.String(100))
     message_location_lat = db.Column('message_location_lat', db.Float)  # latitude

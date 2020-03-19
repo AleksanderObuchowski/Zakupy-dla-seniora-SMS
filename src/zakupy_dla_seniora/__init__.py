@@ -28,6 +28,9 @@ def register_api_resources(api):
     from zakupy_dla_seniora.board_view.resources import BoardView
     api.add_resource(BoardView, '/board')
 
+    from zakupy_dla_seniora.orders.resources import OrderCreation
+    api.add_resource(OrderCreation, '/order')
+
 
 def create_app(config_class=Config):
     app = Flask(__name__, static_url_path='/static')

@@ -10,14 +10,13 @@ class Orders(db.Model):
     id = db.Column('id', db.Integer, primary_key=True)
     user_id = db.Column('user_id', db.Integer, db.ForeignKey('user.id'))
     message_id = db.Column('message_id', db.Integer, db.ForeignKey('message.id'))
-    order_status = db.Column('order_status', db.String(40))
-    order_date = db.Column('order_date', db.DateTime, default=datetime.utcnow)
+    order_status = db.Column('order_status', db.String(40), default='Waiting')
+    order_date = db.Column('order_date', db.DateTime)
 
-    def __init__(self, user_id, message_id, order_status, order_date):
+    def __init__(self, user_id, message_id):
         self.user_id = user_id
         self.message_id = message_id
-        self.order_status = order_status
-        self.order_date = order_date
+        self.order_date = datetime.now(timezone.utc)
 
     def prepare_board_view(self):
         return {

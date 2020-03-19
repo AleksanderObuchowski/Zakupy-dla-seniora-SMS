@@ -33,4 +33,4 @@ class ReceiveSMS(Resource):
         #     body= 'Twoje zamówienie zostało przyjęte, czekamy aż ktoś się zgłosi'
         # )
 
-        return {'success': True}, 200
+        return {'success': True, 'id': new_message.id}, 200

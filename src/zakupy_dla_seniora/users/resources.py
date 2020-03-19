@@ -21,5 +21,5 @@ class UserRegistration(Resource):
             phone=data['phone'].replace(' ', '+')
         )
         new_user.save()
-        return {'success': True, 'message': 'Konto zostało stworzone.'}, 200
+        return {'success': True, 'message': 'Konto zostało stworzone.', 'id': new_user.id}, 200
 
