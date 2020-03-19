@@ -13,7 +13,6 @@ Finally, grant your user privileges to run queries on created database:
 `GRANT ALL PRIVILEGES ON zakupy_dla_seniora_db.* TO 'artifai'@'localhost';`
 
 ### Make config file
-
 Application is using __config.py__ file for flack variables initialization (like database connection string). 
 This file should be placed in `/src/zakupy_dla_seniora/config.py` and should be defined as follows:
 

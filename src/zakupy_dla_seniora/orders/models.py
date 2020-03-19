@@ -1,18 +1,20 @@
 from zakupy_dla_seniora import sql_db as db
 from datetime import datetime, timezone
+from sqlalchemy import UniqueConstraint, exc
+
 
 class Orders(db.Model):
     __tablename__ = 'order'
-    # __table_args__ = (UniqueConstraint('id_user','id_message', name = 'unique_message_user'),)
+    __table_args__ = (UniqueConstraint('user_id','message_id', name = 'unique_message_user'),)
     id = db.Column('id', db.Integer, primary_key=True)
-    id_user = db.Column('id_user', db.Integer, db.ForeignKey('user.id'))
-    # id_message = db.Columne('id_message', db.Integer, db.Foreignkey('messages.id'))
+    user_id = db.Column('user_id', db.Integer, db.ForeignKey('user.id'))
+    message_id = db.Column('message_id', db.Integer, db.ForeignKey('message.id'))
     order_status = db.Column('order_status', db.String(40))
     order_date = db.Column('order_date', db.DateTime, default=datetime.utcnow)
 
-    def __init__(self, id_user, order_status, order_date):
-        self.id_user = id_user
-        # self.id_message = id_message
+    def __init__(self, user_id, message_id, order_status, order_date):
+        self.user_id = user_id
+        self.message_id = message_id
         self.order_status = order_status
         self.order_date = order_date
 
