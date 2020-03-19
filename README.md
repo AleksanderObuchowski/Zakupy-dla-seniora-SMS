@@ -10,7 +10,7 @@ Next run    `CREATE DATABASE zakupy_dla_seniora_db`   And then you need to creat
 `CREATE USER 'artifai'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';`   
 with your password.
 Finally, grant your user privileges to run queries on created database:   
-`GRANT ALL PRIVILEGES ON zakupy_dla_seriora_db.* TO 'artifai'@'localhost';`
+`GRANT ALL PRIVILEGES ON zakupy_dla_seniora_db.* TO 'artifai'@'localhost';`
 
 ### Install MongoDB
 First you need to install and configure MongoDB. To do this you can just follow this tutorial (steps 1 and 2 are just enough):   
@@ -20,7 +20,7 @@ you run the app.
 
 ### Make config file
 Application is using __config.py__ file for flack variables initialization (like database connection string). 
-This file should be placed in _/src/config.py_ and should be defined as follows:   
+This file should be placed in `/src/zakupy_dla_seniora/config.py` and should be defined as follows:   
 ```python
 mysql_user_name = 'artifai'
 mysql_user_password = ''  # put your mysql artifai user password
