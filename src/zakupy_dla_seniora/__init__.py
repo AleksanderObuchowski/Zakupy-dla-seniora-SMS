@@ -24,6 +24,9 @@ def register_api_resources(api):
     api.add_resource(SendSMSCode, '/send_code')
     api.add_resource(CheckSMSCode, '/check_code')
 
+    from zakupy_dla_seniora.sms_handler.resources import ReceiveSMS
+    api.add_resource(ReceiveSMS,'/sms')
+
 
 def create_app(config_class=Config):
     app = Flask(__name__, static_url_path='/static')
