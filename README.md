@@ -19,14 +19,13 @@ Not like in mysql, you don't actually need to create new database and collection
 you run the app.
 
 ### Make config file
-<<<<<<< HEAD
-Application is using __config.py__ file for flack variables initialization (like database connection string).
-This file should be placed in _/src/config.py_ and should be defined as follows:   
-=======
+
 Application is using __config.py__ file for flack variables initialization (like database connection string). 
-This file should be placed in `/src/zakupy_dla_seniora/config.py` and should be defined as follows:   
->>>>>>> 97748fa70bfcdbdc85e276a82b8091f7e2f4fa93
+This file should be placed in `/src/zakupy_dla_seniora/config.py` and should be defined as follows:
+
 ```python
+from secrets import token_hex
+
 mysql_user_name = 'artifai'
 mysql_user_password = ''  # put your mysql artifai user password
 mysql_server = 'localhost'
@@ -39,7 +38,7 @@ twilio_sid = ''  # put your twilio sid
 twilio_auth_token = ''  # put your twilio auth_token
 
 class Config:
-    SECRET_KEY = '' # put your secret key
+    SECRET_KEY = token_hex(16)#  '' # put your secret key
     SQLALCHEMY_DATABASE_URI = f'mysql://{mysql_user_name}:{mysql_user_password}@{mysql_server}/{mysql_database}'
     MONGODB_SETTINGS = {
         'host': f'mongodb://{mongo_host}:{mongo_port}/{mongo_db_name}'
