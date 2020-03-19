@@ -6,7 +6,9 @@
 To install mysql follow instructions of this site:
 [How to install mysql on ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04)
 Then you need to create database and user for the app. If you are not in the mysql shell use `sudo mysql` to enter mysql command line.
-Next run    `CREATE DATABASE zakupy_dla_seniora_db`   And then you need to create new user by running   
+Next run \
+`CREATE DATABASE zakupy_dla_seniora_db CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;`\
+And then you need to create new user by running   
 `CREATE USER 'artifai'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';`   
 with your password.
 Finally, grant your user privileges to run queries on created database:   
@@ -29,7 +31,7 @@ twilio_auth_token = '3ab51dd71c656bec8f0dabeccede044d'  # put your twilio auth_t
 
 class Config:
     SECRET_KEY = token_hex(16)#  '' # put your secret key
-    SQLALCHEMY_DATABASE_URI = f'mysql://{mysql_user_name}:{mysql_user_password}@{mysql_server}/{mysql_database}'
+    SQLALCHEMY_DATABASE_URI = f'mysql://{mysql_user_name}:{mysql_user_password}@{mysql_server}/{mysql_database}?charset=utf8mb4'
 ```
 
 ### Generate your secret key

@@ -13,10 +13,11 @@ geocoder_data = {
     'format': 'json'
 }
 
+
 def get_location(message):
     doc = nlp(message)
     for ent in doc.ents:
-        if(ent.label_ == 'GPE'):
+        if ent.label_ == 'GPE':
             location_text = ent.text
             geocoder_data['q'] = location_text
             location = requests.get(geocoder_url, params=geocoder_data)
@@ -24,5 +25,7 @@ def get_location(message):
             lon = float(location.json()[0]['lon'])
             break
     return location_text, lat, lon
+
+
 if __name__ == '__main__':
     get_location("Poprosze kupić masło Kasia 2 opakowania pozdranwiam Halina Mostowiak, lokalizacja : Gdańsk Zaspa")
