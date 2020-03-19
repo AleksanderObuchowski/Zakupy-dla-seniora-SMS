@@ -12,12 +12,6 @@ with your password.
 Finally, grant your user privileges to run queries on created database:   
 `GRANT ALL PRIVILEGES ON zakupy_dla_seniora_db.* TO 'artifai'@'localhost';`
 
-### Install MongoDB
-First you need to install and configure MongoDB. To do this you can just follow this tutorial (steps 1 and 2 are just enough):   
-[How to install MongoDB on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-18-04)   
-Not like in mysql, you don't actually need to create new database and collections (mysql's table, mongodb use word collection). Those will be created for you first time
-you run the app.
-
 ### Make config file
 
 Application is using __config.py__ file for flack variables initialization (like database connection string). 
@@ -30,9 +24,6 @@ mysql_user_name = 'artifai'
 mysql_user_password = ''  # put your mysql artifai user password
 mysql_server = 'localhost'
 mysql_database = 'zakupy_dla_seniora_db'
-mongo_host = 'localhost'
-mongo_port = 27017
-mongo_db_name = 'zakupy_dla_seniora'
 
 twilio_sid = ''  # put your twilio sid
 twilio_auth_token = ''  # put your twilio auth_token
@@ -40,9 +31,6 @@ twilio_auth_token = ''  # put your twilio auth_token
 class Config:
     SECRET_KEY = token_hex(16)#  '' # put your secret key
     SQLALCHEMY_DATABASE_URI = f'mysql://{mysql_user_name}:{mysql_user_password}@{mysql_server}/{mysql_database}'
-    MONGODB_SETTINGS = {
-        'host': f'mongodb://{mongo_host}:{mongo_port}/{mongo_db_name}'
-    }
 ```
 
 ### Generate your secret key
@@ -103,14 +91,6 @@ api.add_resource(YourResourceName, '/path/to/your/resource')
 
 ### Adding models
 If your module needs to store information in database, you need to consider creating `models.py` file inside it.
-The file should have following template for MongoDB:   
-```python
-from zakupy_dla_seniora import mongo_db
-
-class Your_Model_Name(mongo_db.Document):
-    # Your fields definitions
-```
-or for mysql:
 ```python
 from zakupy_dla_seniora import mysql_db
 
