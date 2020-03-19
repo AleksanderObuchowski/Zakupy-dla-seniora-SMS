@@ -24,7 +24,7 @@ class Messages(db.Model):
         self.message_date = datetime.now(timezone.utc)
         self.message_location = message_location
         self.phone_number = phone_number
-        self. message_status = 'Recieved'
+        self.message_status = 'Received'
         self.message_location_lat = message_location_lat
         self.message_location_lon = message_location_lon
 
