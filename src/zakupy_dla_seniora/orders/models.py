@@ -13,10 +13,11 @@ class Orders(db.Model):
     order_status = db.Column('order_status', db.String(40), default='Waiting')
     order_date = db.Column('order_date', db.DateTime)
 
-    def __init__(self, user_id, message_id):
+    def __init__(self, user_id, message_id, order_status = "waiting for address", order_date = datetime.now(timezone.utc)):
         self.user_id = user_id
         self.message_id = message_id
-        self.order_date = datetime.now(timezone.utc)
+        seld.order_status = order_status
+        self.order_date = order_date
 
     def prepare_board_view(self):
         return {
@@ -26,6 +27,15 @@ class Orders(db.Model):
             'order_status': self.order_status,
             'order_date': str(self.order_date)
         }
+
+
+    def update_by_user_id(self, user_id, status):
+        db.session.query(Orders).filter(Orders.user_id == user_id).update({'order_status' : status})
+        db.session.commit()
+
+    def update_by_message_id(self, message_id, status):
+        db.session.query(Orders).filter(Orders.message_id == message_id).update({'order_status' : status})
+        db.session.commit()
 
     def save(self):
         db.session.add(self)

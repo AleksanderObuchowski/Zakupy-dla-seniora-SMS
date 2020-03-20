@@ -1,5 +1,7 @@
 from zakupy_dla_seniora.sms_handler.models import Messages
 from zakupy_dla_seniora.sms_handler.functions import get_location
+from zakupy_dla_seniora.orders.models import Orders
+
 
 def new_message( message_content, phone_number):
     message_location, lat, lon = get_location(message_content)
