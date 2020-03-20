@@ -70,7 +70,7 @@ def create_messages(amount):
 
     for i in range(amount):
         # products_num = randint(1, len(products_num) - 1)
-        products_num = randint(1, 5)
+        products_num = randint(1, 3)
         body = begin_phrases[randint(0, len(begin_phrases)-1)] + " "
         verbally = randint(0, 1)
         numerals = num_products if verbally else range(1, 10)
