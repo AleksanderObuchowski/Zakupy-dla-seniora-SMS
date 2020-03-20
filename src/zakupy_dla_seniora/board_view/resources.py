@@ -30,6 +30,3 @@ class BoardView(Resource):
         messages = [message.prepare_board_view() for message in messages]
 
         return {'success': True, 'data': messages}, 200
-
-
-
