@@ -14,17 +14,29 @@ geocoder_data = {
 }
 
 
-def get_location(message):
-    doc = nlp(message)
-    for ent in doc.ents:
-        if ent.label_ == 'GPE':
-            location_text = ent.text
-            geocoder_data['q'] = location_text
-            location = requests.get(geocoder_url, params=geocoder_data)
+def get_location(message,search = True):
+    if search:
+        doc = nlp(message)
+        for ent in doc.ents:
+            if ent.label_ == 'GPE':
+                location_text = ent.text
+                geocoder_data['q'] = location_text
+                location = requests.get(geocoder_url, params=geocoder_data)
+                if not 'error' in location.json():
+                    lat = float(location.json()[0]['lat'])
+                    lon = float(location.json()[0]['lon'])
+                    return location_text, lat, lon
+        return 'unk','unk','unk'
+    else:
+        geocoder_data['q'] = message
+        location = requests.get(geocoder_url, params=geocoder_data)
+        if not 'error' in location.json():
+            print(location.json())
             lat = float(location.json()[0]['lat'])
             lon = float(location.json()[0]['lon'])
-            break
-    return location_text, lat, lon
+            return message, lat, lon
+        else:
+            return 'unk', 'unk', 'unk'
 
 
 if __name__ == '__main__':
