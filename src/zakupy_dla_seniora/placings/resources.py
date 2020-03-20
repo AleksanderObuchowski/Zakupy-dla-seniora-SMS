@@ -16,4 +16,19 @@ class PlacingCreation(Resource):
         )
         new_placing.save()
 
-        return placing_creation_message(user_id=new_placing.user_id, message_id=new_placing.message_id)
+
+        return placing_creation_message(user_id = new_placing.user_id, message_id = new_placing.message_id)
+
+
+class PlacingEnding(Resource):
+    def post(self):
+        data = register_parser.parse_args()
+        edited_placing = Placings(
+            user_id=data['user_id'],
+            message_id=data['message_id'],
+            placing_status = "waiting for ending approval"
+        )
+
+        edited_placing.save()
+
+        #return

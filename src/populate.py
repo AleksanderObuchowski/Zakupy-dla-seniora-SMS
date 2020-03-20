@@ -116,7 +116,7 @@ def create_placings(amount):
 
 
 if __name__ == '__main__':
-    amount_ = 10
+    amount_ = 20
     create_users(amount_)
     create_messages(amount_)
     create_placings(amount_)
