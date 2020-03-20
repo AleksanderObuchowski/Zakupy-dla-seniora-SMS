@@ -28,8 +28,8 @@ def register_api_resources(api):
     from zakupy_dla_seniora.board_view.resources import BoardView
     api.add_resource(BoardView, '/board')
 
-    from zakupy_dla_seniora.orders.resources import OrderCreation
-    api.add_resource(OrderCreation, '/order')
+    from zakupy_dla_seniora.placings.resources import PlacingCreation
+    api.add_resource(PlacingCreation, '/placing')
 
 
 def create_app(config_class=Config):

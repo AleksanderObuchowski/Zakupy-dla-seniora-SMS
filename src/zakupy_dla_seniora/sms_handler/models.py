@@ -14,7 +14,7 @@ class Messages(db.Model):
     message_precise_location = db.Column('message_precise_location', db.String(60))
     phone_number = db.Column('phone_number', db.String(12))
     message_status = db.Column('message_status', db.String(100))
-    orders = db.relationship('Orders', backref='message', cascade='all, delete-orphan', lazy='dynamic')
+    placings = db.relationship('Placings', backref='message', cascade='all, delete-orphan', lazy='dynamic')
 
     def __init__(self, message_content,phone_number, message_location='unk', message_location_lat =0, message_location_lon=0, message_status = 'Recieved'):
         self.message_content = message_content
@@ -34,7 +34,7 @@ class Messages(db.Model):
             'message_location_lat': self.message_location_lat,
             'message_location_lon': self.message_location_lon,
             'message_status': self.message_status,
-            'orders': [order.prepare_board_view() for order in self.orders]
+            'placings': [placing.prepare_board_view() for placing in self.placings]
         }
 
     @classmethod
@@ -44,10 +44,6 @@ class Messages(db.Model):
     @classmethod
     def get_by_id(cls,id_):
         return cls.query.filter_by(id = id_).first()
-
-    def update_by_user_id(self, message_id, precise_location):
-        db.session.query(Messages).filter(Messages.id == message_id).update({'message_precise_location' : precise_location})
-        db.session.commit()
 
     def __repr__(self):
         return f'<Message from {self.message_location}>'
