@@ -39,6 +39,10 @@ class User(db.Model):
     def get_by_phone(cls, phone):
         return cls.query.filter_by(phone=phone).first()
 
+    @classmethod
+    def get_by_id(cls,id_):
+        return cls.query.filter_by(id = id_).first()
+
     def save(self):
         db.session.add(self)
         db.session.commit()

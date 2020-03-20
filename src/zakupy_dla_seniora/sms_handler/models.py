@@ -40,6 +40,15 @@ class Messages(db.Model):
     @classmethod
     def get_by_phone(cls,phone):
         return cls.query.filter_by(phone_number=phone).order_by(cls.message_date.desc()).first()
+
+    @classmethod
+    def get_by_id(cls,id_):
+        return cls.query.filter_by(id = id_).first()
+
+    def update_by_user_id(self, message_id, precise_location):
+        db.session.query(Messages).filter(Messages.id == message_id).update({'message_precise_location' : precise_location})
+        db.session.commit()
+
     def __repr__(self):
         return f'<Message from {self.message_location}>'
 
