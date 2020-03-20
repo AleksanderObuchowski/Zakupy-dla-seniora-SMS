@@ -3,9 +3,10 @@ from faker import Faker
 from random import randint
 import time
 from datetime import datetime
+from zakupy_dla_seniora.sms_handler.models import Messages
 
 
-local_url = 'http://127.0.0.1:5001'
+local_url = 'http://127.0.0.1:5000'
 fake = Faker(['pl_PL'])
 added_users = []
 added_messages = []
@@ -37,7 +38,7 @@ def create_users(amount):
 
 def create_messages(amount):
     endpoint = '/sms'
-       begin_phrases = [
+    begin_phrases = [
         "Dzień dobry, poproszę", "Potrzebuję ", "", "O to moja lista zakupów"
     ]
 
@@ -100,7 +101,7 @@ def create_messages(amount):
             }
         )
         print(f'Added Message "{body}".')
-        added_messages.append(r.json()['id'])
+        added_messages.append(i)
         time.sleep(0.5)
 
 
@@ -127,4 +128,3 @@ if __name__ == '__main__':
     create_users(amount_)
     create_messages(amount_)
     create_placings(amount_)
-

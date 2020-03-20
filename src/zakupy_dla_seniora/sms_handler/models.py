@@ -1,5 +1,6 @@
 from zakupy_dla_seniora import sql_db as db
 from datetime import datetime, timezone
+from zakupy_dla_seniora.placings.models import Placings
 
 
 class Messages(db.Model):
@@ -34,12 +35,16 @@ class Messages(db.Model):
             'message_location_lat': self.message_location_lat,
             'message_location_lon': self.message_location_lon,
             'message_status': self.message_status,
-            'placings': [placing.prepare_board_view() for placing in self.placings]
+            # 'placings': [placing.prepare_board_view() for placing in self.placings]
         }
 
     @classmethod
     def get_by_phone(cls,phone):
         return cls.query.filter_by(phone_number=phone).order_by(cls.message_date.desc()).first()
+
+    @classmethod
+    def get_all(cls):
+        return cls.query.all()
 
     @classmethod
     def get_by_id(cls,id_):
