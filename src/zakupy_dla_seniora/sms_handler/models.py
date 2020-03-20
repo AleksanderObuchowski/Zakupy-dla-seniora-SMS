@@ -14,7 +14,7 @@ class Messages(db.Model):
     message_precise_location = db.Column('message_precise_location', db.String(60))
     phone_number = db.Column('phone_number', db.String(12))
     message_status = db.Column('message_status', db.String(100))
-    orders = db.relationship('Orders', backref='message', cascade='all, delete-orphan', lazy='dynamic')
+    placings = db.relationship('Placings', backref='message', cascade='all, delete-orphan', lazy='dynamic')
 
     def __init__(self, message_content,phone_number, message_location='unk', message_location_lat =0, message_location_lon=0, message_status = 'Recieved'):
         self.message_content = message_content
@@ -34,7 +34,7 @@ class Messages(db.Model):
             'message_location_lat': self.message_location_lat,
             'message_location_lon': self.message_location_lon,
             'message_status': self.message_status,
-            'orders': [order.prepare_board_view() for order in self.orders]
+            'placings': [placing.prepare_board_view() for placing in self.placings]
         }
 
     @classmethod

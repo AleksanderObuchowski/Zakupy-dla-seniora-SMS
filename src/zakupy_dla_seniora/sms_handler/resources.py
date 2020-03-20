@@ -17,14 +17,17 @@ class ReceiveSMS(Resource):
     def post(self):
         message_content = sending_parser.parse_args()['Body']
         phone_number = sending_parser.parse_args()['From']
+        phone_number.replace(' ', '+')
         last_message  = Messages.get_by_phone(phone_number)
 
         if last_message:
             if last_message.message_status == 'Waiting for location':
-                response_message = got_location_message(last_message,message_content)
+                return  got_location_message(last_message,message_content)
+            elif last_message.message_status == 'Waiting for address':
+                response_message = got_address_message(last_message,message_content)
+
             else:
                 response_message = new_message(message_content, phone_number)
-
         else:
             response_message = new_message(message_content, phone_number)
 
