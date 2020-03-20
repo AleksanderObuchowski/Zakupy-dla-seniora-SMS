@@ -54,7 +54,7 @@ def got_location_message(last_message, message_content):
 def placing_creation_message(user_id, message_id):
     message = Messages.get_by_id(message_id)
     user = User.get_by_id(user_id)
-    response_message = f'Użytkownik {user.name} {user.last_name} o numerze telefonu {user.phone} zgłosił się, aby' \
+    response_message = f'Użytkownik {user.display_name} o numerze telefonu {user.phone} zgłosił się, aby' \
                        f' zrealizować twoje zamówienie, prosze podaj dokładny adres.'
     message.message_status = 'Waiting for address'
     message.save()
@@ -87,3 +87,43 @@ def got_address_message(last_message, message_content):
     except:
         response_sent = False
     return {'success': True, 'response': response_message, 'response_sent': response_sent}, 200
+
+def ending_approval_message(user_id, message_id):
+    last_message = Messages.get_by_id(message_id)
+    last_message.message_status = "waiting for ending approval"
+    last_message.save()
+
+    response_message = f'Czy twoje zakupy zostały dostarczone pomyślnie? Odpisz TAK jeżeli wszystko poszło dobrze, lub opisz nam swoje problemy'
+    try:
+        client.messages.create(
+            to=last_message.phone_number,
+            from_=twilio_phone,
+            body=response_message
+        )
+        response_sent = True
+    except:
+        response_sent = False
+    return {'success': True, 'response': response_message, 'response_sent': response_sent}, 200
+
+def got_final_confirmation(last_message,message_content):
+    if message_content.lower() in ['tak','dobrze','spoko','super']:
+        last_message.message_status = "Done"
+        last_message.save()
+        placing = Placings.query.filter(Placings.message_id ==last_message.id).order_by(Placings.placing_date.desc()).first()
+        user_id = placing.user_id
+        placing.status = "Done"
+        placing.save()
+        user = User.query.filter(User.id == user_id).first()
+        user.points += 10
+        user.save()
+        response_message = "Dziękujemy za skorzystanie z naszego systemu czekamy na kolejne zamówienie"
+        return response_message
+    else:
+        last_message.message_status = "Something worng"
+        last_message.save()
+        placing = Placings.query.filter(Placings.message_id == last_message.id).order_by(
+            Placings.placing_date.desc()).first()
+        placing.status = "Something worng"
+        placing.save()
+        response_message = "Dziękujemy za informacje, moderacja przyjrzy się sprawie"
+        return response_message
