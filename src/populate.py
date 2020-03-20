@@ -60,7 +60,7 @@ def create_messages(amount):
         'Gdańsk', 'Warszawa'
     ]
 
-    districts_gdańsk = [
+    districts_gdansk = [
         "Aniołki", "Brętowo", "Brzeźno", "Chełm", "Jasień", "Kokoszki", "Krakowiec - Górki Zachodnie",
         "Letnica", "Matarnia", "Młyniska", "Nowy Port", "Oliwa", "Olszynka",
         "Orunia Górna - Gdańsk Południe", "Orunia - Św.Wojciech - Lipce", "Osowa", "Piecki - Migowo",
@@ -85,7 +85,7 @@ def create_messages(amount):
             body += " " + products[randint(0, len(products) - 1)] + ", "
         body += ' ' + location_phrases[randint(0, len(location_phrases)-1)]
         location = " " + cities[randint(0, len(cities) - 1)] + " "
-        location += districts_gdańsk[randint(0, len(districts_gdańsk)-1)] if location == "Gdańsk" \
+        location += districts_gdansk[randint(0, len(districts_gdansk)-1)] if location == "Gdańsk" \
             else districts_warszawa[randint(0, len(districts_warszawa)-1)]
         lower = randint(0, 1)
         location = location.lower() if lower else location
