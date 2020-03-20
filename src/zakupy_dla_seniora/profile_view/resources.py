@@ -19,6 +19,7 @@ class ProfileView(Resource):
 
         placings = [placing.prepare_board_view() for placing in placings]
         for placing in placings:
+
             info = Messages.query.filter(Messages.id == placing['message_id']).first().prepare_board_view()
             info['placing_status'] = placing['placing_status']
             del info['id']
