@@ -43,10 +43,6 @@ class Messages(db.Model):
         return cls.query.filter_by(phone_number=phone).order_by(cls.message_date.desc()).first()
 
     @classmethod
-    def get_all(cls):
-        return cls.query.all()
-
-    @classmethod
     def get_by_id(cls,id_):
         return cls.query.filter_by(id = id_).first()
 
