@@ -27,6 +27,8 @@ class ReceiveSMS(Resource):
                 return got_location_message(last_message, message_content)
             elif last_message.message_status == 'Waiting for address':
                 response_message = got_address_message(last_message, message_content)
+            elif last_message.message_status == 'waiting for ending approval':
+                response_message = got_final_confirmation(last_message,message_content)
 
             else:
                 response_message = new_message(message_content, phone_number)
