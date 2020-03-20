@@ -19,18 +19,11 @@ class ProfileView(Resource):
 
         placings = [placing.prepare_board_view() for placing in placings]
         for placing in placings:
-<<<<<<< HEAD
-            dict = {}
-            dict = Messages.query.filter(Messages.id == placing['message_id']).first().prepare_board_view()
-            dict['placing_status'] = placing['placing_status']
-            del dict['id']
-            data.append(dict)
-=======
+
             info = Messages.query.filter(Messages.id == placing['message_id']).first().prepare_board_view()
             info['placing_status'] = placing['placing_status']
             del info['id']
             data.append(info)
->>>>>>> eb2c3fee6deedbac128dea82b1d30a68937af6ea
 
 
         return {'success': True, 'data': data}, 200

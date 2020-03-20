@@ -16,7 +16,7 @@ class PlacingCreation(Resource):
         )
         new_placing.save()
 
-<<<<<<< HEAD
+
         return placing_creation_message(user_id = new_placing.user_id, message_id = new_placing.message_id)
 
 
@@ -30,6 +30,5 @@ class PlacingEnding(Resource):
         )
 
         edited_placing.save()
-=======
-        return placing_creation_message(user_id=new_placing.user_id, message_id=new_placing.message_id)
->>>>>>> eb2c3fee6deedbac128dea82b1d30a68937af6ea
+
+        #return
