@@ -5,7 +5,7 @@ import time
 from datetime import datetime
 
 
-local_url = 'http://127.0.0.1:5000'
+local_url = 'http://127.0.0.1:5001'
 fake = Faker(['pl_PL'])
 added_users = []
 added_messages = []
@@ -104,8 +104,8 @@ def create_messages(amount):
         time.sleep(0.5)
 
 
-def create_orders(amount):
-    endpoint = '/order'
+def create_placings(amount):
+    endpoint = '/placing'
 
     for i in range(amount):
         user_id = added_users[randint(0, len(added_users) - 1)]
@@ -118,7 +118,7 @@ def create_orders(amount):
                 'message_id': message_id,
             }
         )
-        print(f'Added Order for {user_id} from {message_id}.')
+        print(f'Added Placing for {user_id} from {message_id}.')
         time.sleep(0.5)
 
 
@@ -126,5 +126,5 @@ if __name__ == '__main__':
     amount_ = 10
     create_users(amount_)
     create_messages(amount_)
-    create_orders(amount_)
+    create_placings(amount_)
 

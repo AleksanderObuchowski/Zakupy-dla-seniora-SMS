@@ -1,23 +1,23 @@
 from flask_restful import Resource, reqparse
-from zakupy_dla_seniora.orders.models import Orders
-
+from zakupy_dla_seniora.placings.models import Placings
+from zakupy_dla_seniora.sms_handler.dialog_functions  import placing_creation_message
 
 register_parser = reqparse.RequestParser()
 register_parser.add_argument('user_id', help='This field cannot be blank', required=True)
 register_parser.add_argument('message_id', help='This field cannot be blank', required=True)
 
 
-class OrderCreation(Resource):
+class PlacingCreation(Resource):
     def post(self):
         data = register_parser.parse_args()
-        new_order = Orders(
+        new_placing = Placings(
             user_id=data['user_id'],
             message_id=data['message_id'],
         )
-        new_order.save()
+        new_placing.save()
 
-        # call function to
+        return placing_creation_message(user_id = new_placing.user_id, message_id = new_placing.message_id)
 
         
 
-        return {'success': True, 'message': 'Order has been added.'}, 200
+
