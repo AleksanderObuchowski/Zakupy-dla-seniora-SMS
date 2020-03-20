@@ -28,7 +28,7 @@ class Placings(db.Model):
         }
 
     def update_by_user_id(self, user_id, status):
-        db.session.query(Placings).filter(Placings.user_id == user_id).update({'placing_status' : status})
+        db.session.query(Placings).filter(Placings.user_id == user_id).update({'placing_status': status})
         db.session.commit()
 
     def update_by_message_id(self, message_id, status):
