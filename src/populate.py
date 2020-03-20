@@ -37,26 +37,59 @@ def create_users(amount):
 
 def create_messages(amount):
     endpoint = '/sms'
-    products = [
-        'mleko', 'masło', 'chleb', 'mydło', 'ibuprom', 'lek na nadciśnienie',
-        'jajka', 'papryka', 'cebula', 'ziemniaki', 'ketchup', 'musztarda',
-        'majonez', 'jajko', 'margaryna', 'mięso', 'kurczak', 'kaszanka'
+       begin_phrases = [
+        "Dzień dobry, poproszę", "Potrzebuję ", "", "O to moja lista zakupów"
     ]
 
-    locations = [
-        'Gdańsk Zaspa', 'Gdańsk Wrzeszcz', 'Gdańsk Przymorze', 'Warszawa',
-        'Gdańsk', 'Poznań', 'Wrocław', 'Łódź', 'Toruń', 'Bydgoszcz',
-        'Szczecin', 'Gdynia', 'Olsztyn', 'Kraków', 'Rzeszów'
+    num_products = [
+        "pół", "jeden", "dwa", "dwie", "trzy", "cztery", "pięć", "sześć", "siedem", "osiem", "dziewięć",
+        "dwadzieścia jeden", "trzydzieści pięć"
+    ]
+
+    products = [
+        'l mleka', 'kostki masła', 'bochenki chleba', 'mydła', 'ibupromy', 'lek na ból gardła',
+        'jajka', 'papryka', 'cebula', ' kg ziemniaków', 'ketchupy', 'musztardy',
+        'majonezy', ' jajka', 'margaryny', 'kg mięsa', 'kurczaki', 'bułki'
+    ]
+
+    location_phrases = [
+        ", lokalizacja: ", "mieszkam w ", "proszę przywieźć do ", "mój adres to"
+    ]
+
+    cities = [
+        'Gdańsk', 'Warszawa'
+    ]
+
+    districts_gdańsk = [
+        "Aniołki", "Brętowo", "Brzeźno", "Chełm", "Jasień", "Kokoszki", "Krakowiec - Górki Zachodnie",
+        "Letnica", "Matarnia", "Młyniska", "Nowy Port", "Oliwa", "Olszynka",
+        "Orunia Górna - Gdańsk Południe", "Orunia - Św.Wojciech - Lipce", "Osowa", "Piecki - Migowo",
+        "Przeróbka", "Przymorze Małe", "Przymorze Wielkie", "Rudniki", "Siedlce", "Stogi", "Strzyża",
+        "Suchanino", "Śródmieście", "Ujeścisko - Łostowice", "VII Dwór", "Wrzeszcz Dolny",
+        "Wrzeszcz Górny", "Wyspa Sobieszewska", "Wzgórze Mickiewicza", "Zaspa - Młyniec",
+        "Zaspa - Rozstaje", "Żabianka - Wejhera - Jelitkowo - Tysiąclecia"
+    ]
+    districts_warszawa = [
+        "Mokotów", "Praga-Południe", "Ursynów", "Wola", "Bielany", "Targówek", "Bemowo", "Śródmieście", "Białołęka",
+        "Ochota", "Wawer", "Praga-Północ", "Ursus", "Żoliborz", "Włochy", "Wilanów", "Wesoła", "Rembertów"
     ]
 
     for i in range(amount):
         # products_num = randint(1, len(products_num) - 1)
-        products_num = randint(1, 3)
-        body = 'Proszę kupić '
+        products_num = randint(1, 5)
+        body = begin_phrases[randint(0, len(begin_phrases)-1)] + " "
+        verbally = randint(0, 1)
+        numerals = num_products if verbally else range(1, 10)
         for _ in range(products_num):
-            body += products[randint(0, len(products) - 1)]
-            body += ' '
-        body += ', lokalizacja : ' + locations[randint(0, len(locations) - 1)]
+            body += str(numerals[randint(0, len(numerals)-1)])
+            body += " " + products[randint(0, len(products) - 1)] + ", "
+        body += ' ' + location_phrases[randint(0, len(location_phrases)-1)]
+        location = " " + cities[randint(0, len(cities) - 1)] + " "
+        location += districts_gdańsk[randint(0, len(districts_gdańsk)-1)] if location == "Gdańsk" \
+            else districts_warszawa[randint(0, len(districts_warszawa)-1)]
+        lower = randint(0, 1)
+        location = location.lower() if lower else location
+        body +=  location
         from_ = f'+48{randint(100000000, 999999999)}'
 
         r = requests.post(
