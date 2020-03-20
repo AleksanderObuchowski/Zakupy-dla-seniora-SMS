@@ -1,7 +1,6 @@
 from zakupy_dla_seniora import sql_db as db
 from datetime import datetime, timezone
 from sqlalchemy import UniqueConstraint, exc
-from zakupy_dla_seniora.sms_handler.models import Messages
 
 
 class Placings(db.Model):
@@ -28,9 +27,8 @@ class Placings(db.Model):
             'placing_date': str(self.placing_date)
         }
 
-
     def update_by_user_id(self, user_id, status):
-        db.session.query(Placings).filter(Placings.user_id == user_id).update({'placing_status' : status})
+        db.session.query(Placings).filter(Placings.user_id == user_id).update({'placing_status': status})
         db.session.commit()
 
     def update_by_message_id(self, message_id, status):

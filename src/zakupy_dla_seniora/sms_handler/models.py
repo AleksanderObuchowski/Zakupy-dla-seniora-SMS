@@ -1,5 +1,6 @@
 from zakupy_dla_seniora import sql_db as db
 from datetime import datetime, timezone
+from zakupy_dla_seniora.placings.models import Placings
 
 
 class Messages(db.Model):
@@ -16,7 +17,8 @@ class Messages(db.Model):
     message_status = db.Column('message_status', db.String(100))
     placings = db.relationship('Placings', backref='message', cascade='all, delete-orphan', lazy='dynamic')
 
-    def __init__(self, message_content,phone_number, message_location='unk', message_location_lat =0, message_location_lon=0, message_status = 'Recieved'):
+    def __init__(self, message_content, phone_number, message_location='unk', message_location_lat=0,
+                 message_location_lon=0, message_status='Received'):
         self.message_content = message_content
         self.message_date = datetime.now(timezone.utc)
         self.message_location = message_location
@@ -34,16 +36,16 @@ class Messages(db.Model):
             'message_location_lat': self.message_location_lat,
             'message_location_lon': self.message_location_lon,
             'message_status': self.message_status,
-            'placings': [placing.prepare_board_view() for placing in self.placings]
+            # 'placings': [placing.prepare_board_view() for placing in self.placings]
         }
 
     @classmethod
-    def get_by_phone(cls,phone):
+    def get_by_phone(cls, phone):
         return cls.query.filter_by(phone_number=phone).order_by(cls.message_date.desc()).first()
 
     @classmethod
-    def get_by_id(cls,id_):
-        return cls.query.filter_by(id = id_).first()
+    def get_by_id(cls, id_):
+        return cls.query.filter_by(id=id_).first()
 
     def __repr__(self):
         return f'<Message from {self.message_location}>'
