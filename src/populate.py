@@ -3,6 +3,7 @@ from faker import Faker
 from random import randint
 import time
 from datetime import datetime
+from text_unidecode import unidecode
 
 
 local_url = 'http://127.0.0.1:5000'
@@ -15,19 +16,12 @@ def create_users(amount):
     endpoint = '/register'
     for i in range(amount):
         name = fake.name()
-        full_name = name.split(' ')
-        first_name = full_name[0]
-        last_name = full_name[1]
-        password = 'example_pass'
-        phone = f'+48{randint(100000000, 999999999)}'
         r = requests.post(
             f'{local_url}{endpoint}',
             data={
-                'name': name,
-                'first_name': first_name,
-                'last_name': last_name,
-                'password': password,
-                'phone': phone
+                'displayName': name,
+                'email': '.'.join(name.split(' ')) + '@gmail.com',
+                'uid': unidecode(''.join(fake.text()))
             }
         )
         print(f'Added User: {name}.')
@@ -100,16 +94,15 @@ def create_messages(amount):
             }
         )
         print(f'Added Message "{body}".')
-        added_messages.append(r.json()['id'])
         time.sleep(0.5)
 
 
-def create_orders(amount):
-    endpoint = '/order'
+def create_placings(amount):
+    endpoint = '/placing'
 
     for i in range(amount):
         user_id = added_users[randint(0, len(added_users) - 1)]
-        message_id = added_messages[randint(0, len(added_messages) - 1)]
+        message_id = randint(0, amount - 1)
 
         r = requests.post(
             f'{local_url}{endpoint}',
@@ -118,7 +111,7 @@ def create_orders(amount):
                 'message_id': message_id,
             }
         )
-        print(f'Added Order for {user_id} from {message_id}.')
+        print(f'Added Placing for {user_id} from {message_id}.')
         time.sleep(0.5)
 
 
@@ -126,5 +119,4 @@ if __name__ == '__main__':
     amount_ = 10
     create_users(amount_)
     create_messages(amount_)
-    create_orders(amount_)
-
+    create_placings(amount_)

@@ -28,8 +28,11 @@ def register_api_resources(api):
     from zakupy_dla_seniora.board_view.resources import BoardView
     api.add_resource(BoardView, '/board')
 
-    from zakupy_dla_seniora.orders.resources import OrderCreation
-    api.add_resource(OrderCreation, '/order')
+    from zakupy_dla_seniora.profile_view.resources import ProfileView
+    api.add_resource(ProfileView, '/profile')
+
+    from zakupy_dla_seniora.placings.resources import PlacingCreation
+    api.add_resource(PlacingCreation, '/placing')
 
     from zakupy_dla_seniora.leaderboards.resources import Leaderboards
     api.add_resource(Leaderboards, '/leaderboards')
