@@ -1,7 +1,6 @@
 from zakupy_dla_seniora import sql_db as db
 from datetime import datetime, timezone
 from sqlalchemy import UniqueConstraint, exc
-from zakupy_dla_seniora.sms_handler.models import Messages
 
 
 class Placings(db.Model):

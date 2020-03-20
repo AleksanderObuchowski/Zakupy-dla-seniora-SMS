@@ -120,4 +120,3 @@ if __name__ == '__main__':
     create_users(amount_)
     create_messages(amount_)
     create_placings(amount_)
-

@@ -1,5 +1,6 @@
 from zakupy_dla_seniora import sql_db as db
 from datetime import datetime, timezone
+from zakupy_dla_seniora.placings.models import Placings
 
 
 class Messages(db.Model):
@@ -35,7 +36,7 @@ class Messages(db.Model):
             'message_location_lat': self.message_location_lat,
             'message_location_lon': self.message_location_lon,
             'message_status': self.message_status,
-            'placings': [placing.prepare_board_view() for placing in self.placings]
+            # 'placings': [placing.prepare_board_view() for placing in self.placings]
         }
 
     @classmethod
