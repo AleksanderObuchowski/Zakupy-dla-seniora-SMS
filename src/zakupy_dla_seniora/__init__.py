@@ -31,6 +31,9 @@ def register_api_resources(api):
     from zakupy_dla_seniora.orders.resources import OrderCreation
     api.add_resource(OrderCreation, '/order')
 
+    from zakupy_dla_seniora.leaderboards.resources import Leaderboards
+    api.add_resource(Leaderboards, '/leaderboards')
+
 
 def create_app(config_class=Config):
     app = Flask(__name__, static_url_path='/static')
