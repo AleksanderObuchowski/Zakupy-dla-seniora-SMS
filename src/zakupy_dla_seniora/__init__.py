@@ -28,6 +28,12 @@ def register_api_resources(api):
     from zakupy_dla_seniora.board_view.resources import BoardView
     api.add_resource(BoardView, '/board')
 
+    from zakupy_dla_seniora.profile_view.resources import ProfileView
+    api.add_resource(ProfileView, '/profile')
+
+    from zakupy_dla_seniora.placings.resources import PlacingCreation
+    api.add_resource(PlacingCreation, '/placing')
+
 
 def create_app(config_class=Config):
     app = Flask(__name__, static_url_path='/static')

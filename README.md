@@ -28,6 +28,7 @@ mysql_database = 'zakupy_dla_seniora_db'
 
 twilio_sid = 'AC5afa0c6a9be65fade4dc61ae23169dc7'  # put your twilio sid
 twilio_auth_token = '3ab51dd71c656bec8f0dabeccede044d'  # put your twilio auth_token
+twilio_phone = '+12057109660'
 
 class Config:
     SECRET_KEY = token_hex(16)#  '' # put your secret key
