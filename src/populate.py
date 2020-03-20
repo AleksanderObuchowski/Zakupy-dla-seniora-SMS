@@ -21,7 +21,7 @@ def create_users(amount):
             data={
                 'displayName': name,
                 'email': '.'.join(name.split(' ')) + '@gmail.com',
-                'uid': unidecode(''.join(fake.text()))
+                'uid': unidecode(''.join(fake.uuid4()))
             }
         )
         print(f'Added User: {name}.')
@@ -116,7 +116,7 @@ def create_placings(amount):
 
 
 if __name__ == '__main__':
-    amount_ = 10
-    create_users(amount_)
+    amount_ = 20
+    # create_users(amount_)
     create_messages(amount_)
-    create_placings(amount_)
+    # create_placings(amount_)
