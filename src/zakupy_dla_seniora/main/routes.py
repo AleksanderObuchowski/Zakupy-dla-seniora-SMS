@@ -18,7 +18,7 @@ def board():
 @main.route('/profile_view')
 def profile():
     # to jest hardcodowane na 1 tak dla testów
-    r = requests.get('http://127.0.0.1:5000/profile',params={"user_id":"2"})
+    r = requests.get('http://127.0.0.1:5000/profile',params={"user_id":"6"})
     print(r.json())
     return render_template('profile.html', data = r.json())
 @main.route('/take_order')
@@ -29,6 +29,7 @@ def take():
     r = requests.post('http://127.0.0.1:5000/placing',params=request.args)
     print(r.json())
     r = requests.get('http://127.0.0.1:5000/board')
+    print(r.json())
     return render_template('board.html', data = r.json())
 @main.route('/sent_end_placing')
 def end():
@@ -37,5 +38,5 @@ def end():
     print(request.args)
     r = requests.post('http://127.0.0.1:5000/end_placing',params=request.args)
     print(r.json())
-    r = requests.get('http://127.0.0.1:5000/board')
-    return render_template('board.html', data = r.json())
+    r = requests.get('http://127.0.0.1:5000/profile',params={"user_id":"2"})
+    return render_template('profile.html', data = r.json())

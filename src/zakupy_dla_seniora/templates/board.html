@@ -5,7 +5,7 @@
     <title>Zakupy dla seniora</title>
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css"/>
-
+    <link rel='icon' href='{{ url_for('static', filename='delight.ico') }}' type='image/x-icon'/ >
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js"></script>
@@ -39,7 +39,7 @@
 <body>
     <nav class="uk-card-default uk-margin-small uk-card-hover" uk-navbar>
         <div class="uk-navbar-left">
-            <a href="index.html" class="uk-navbar-item uk-logo">
+            <a href="/" class="uk-navbar-item uk-logo">
                 <img src="{{ url_for('static', filename='delight.svg') }}" style=" height:50px; ">
              <p class="uk-margin-left">Zakupy dla seniora</p>
             </a>
@@ -124,7 +124,7 @@ function display_shopping() {
     for (var d in data) {
         var p =L.latLng(data[d]['message_location_lat'],data[d]['message_location_lon'])
         if (mymap.getBounds().contains(p)){
-            str = "<div class=\"uk-margin uk-card uk-card-default uk-card-hover uk-card-body uk-margin-auto\"><h3 class=\"uk-card-title\">"+ data[d]['message_location']+"</h3> <a href =\"/take_order?user_id=2&message_id="+data[d]['id']+"\"style=\"float: right;\" align=\"right\" class=\"uk-button uk-button-primary uk-margin-left\">Weź zlecenie</a><p>" + data[d]['message_content'] + "</p></div>"
+            str = "<div class=\"uk-margin uk-card uk-card-default uk-card-hover uk-card-body uk-margin-auto\"><h3 class=\"uk-card-title\">"+ data[d]['message_location']+"</h3> <a href =\"/take_order?user_id=6&message_id="+data[d]['id']+"\"style=\"float: right;\" align=\"right\" class=\"uk-button uk-button-primary uk-margin-left\">Weź zlecenie</a><p>" + data[d]['message_content'] + "</p></div>"
             html_str += str
         }
     }
