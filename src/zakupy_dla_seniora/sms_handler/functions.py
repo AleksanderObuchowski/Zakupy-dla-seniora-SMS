@@ -12,25 +12,29 @@ geocoder_data = {
     'format': 'json'
 }
 
-def get_location(message, search=True):
+def get_location_and_products(message, search=True):
 
     if search:
 
-        df = pd.read_csv("~/Downloads/places.csv")
+        df = pd.read_csv("zakupy-dla-seniora-backend/places.csv")
         nlp = spacy.load('pl_model')
         doc = nlp(message.strip().title())
-
+        products = []
         places_to_check = []
         location_text = ""
         used = []
         punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
         for token in doc:
             if token.pos_ == "NUM":
+                item = token.text + " " + token.head.text
                 used.append(token.text)
                 used.append(token.head.text)
-                for child in token.head.children:
-                    if child.text not in used and child.dep_!="conj":
-                        used.append(child.text)
+                if token.head.children:
+                    for child in token.head.children:
+                        if child.text not in used and child.dep_!="conj":
+                            item += " " + child.text
+                            used.append(child.text)
+                    products.append(item)
             elif token.pos_ == "NOUN" and token.text not in used:
                 places_to_check.append(token)
         places_to_check.reverse()
@@ -42,7 +46,7 @@ def get_location(message, search=True):
                     used.append(token.text)
                     if token.children:
                         for child in token.children:
-                            if child.text not in used:
+                            if child.text not in used and child.dep_!="conj":
                                 location_text += " " + child.text
                                 if child in places_to_check:
                                     places_to_check.remove(child)
@@ -55,10 +59,25 @@ def get_location(message, search=True):
                             used.append(token.head.text)
                 else:
                     if token.text not in used:
+                        item = token.text
                         used.append(token.text)
-                        for child in token.children:
-                            if child.text not in used and child.dep_!="conj":
-                                used.append(child.text)
+                        if token.children:
+                            for child in token.children:
+                                if child.text not in used and child.dep_!="conj":
+                                    item += " " + child.text
+                                    used.append(child.text)
+                                    products.append(item)
+            if token.text not in used:
+                item = token.text
+                for child in token.children:
+                    if child.text not in used and child.dep_!="conj":
+                        item += " " + child.text
+                        used.append(child.text)
+                products.append(item)
+        for product in products:
+            for letter in product:
+                if letter in punctuations:
+                    product = product.replace(letter, "")
         if location_text != "":
             for letter in location_text:
                 if letter in punctuations:
@@ -70,7 +89,7 @@ def get_location(message, search=True):
                 lon = float(location.json()[0]['lon'])
                 return location_text, lat, lon
         else:
-            return 'unk', 'unk', 'unk'
+            return products, 'unk', 'unk', 'unk'
     else:
         geocoder_data['q'] = message
         location = requests.get(geocoder_url, params=geocoder_data)
@@ -78,9 +97,9 @@ def get_location(message, search=True):
             print(location.json())
             lat = float(location.json()[0]['lat'])
             lon = float(location.json()[0]['lon'])
-            return message, lat, lon
+            return products, message, lat, lon
         else:
-            return 'unk', 'unk', 'unk'
+            return products, 'unk', 'unk', 'unk'
 
 if __name__ == '__main__':
     get_location("Proszę zawieźć 6 bułek pszennych, 3 zupy profi, domestos, do Gdańsk Zaspa")
