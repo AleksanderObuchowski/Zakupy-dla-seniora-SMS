@@ -1,4 +1,3 @@
-
 <div align="center">
 
 ![zakupy sms dla seniora logo](https://gitlab.com/artifai-extended-edition/zakupy-dla-seniora-backend/-/raw/dev/src/zakupy_dla_seniora/static/logo.png)
@@ -14,8 +13,6 @@
 :gb:
 > The aim of the application is creation of a notice board, where seniors can ask for help with shopping
 > via SMS and a volunteer, after contacting them will deliver it to their door.
-
-**[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)**
 
 
 
