@@ -116,7 +116,6 @@ def get_location(message, search=True):
         geocoder_data['q'] = message
         location = requests.get(geocoder_url, params=geocoder_data)
         if not 'error' in location.json():
-            print(location.json())
             lat = float(location.json()[0]['lat'])
             lon = float(location.json()[0]['lon'])
             return message, lat, lon
