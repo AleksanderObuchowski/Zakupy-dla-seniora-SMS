@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Zakupy dla seniora</title>
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css"/>
+        <link rel='icon' href='{{ url_for('static', filename='delight.ico') }}' type='image/x-icon'/ >
 
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js"></script>
@@ -39,7 +40,7 @@
 <body>
     <nav class="uk-card-default uk-margin-small uk-card-hover" uk-navbar>
         <div class="uk-navbar-left">
-            <a href="index.html" class="uk-navbar-item uk-logo">
+            <a href="/" class="uk-navbar-item uk-logo">
                 <img src="{{ url_for('static', filename='delight.svg') }}" style=" height:50px; ">
              <p class="uk-margin-left">Zakupy dla seniora</p>
             </a>

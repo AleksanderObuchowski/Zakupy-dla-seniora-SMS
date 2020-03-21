@@ -46,3 +46,6 @@ class ReceiveSMS(Resource):
             response_sent = False
 
         return {'success': True, 'response_sent': response_sent, 'response': response_message}, 200
+
+
+
