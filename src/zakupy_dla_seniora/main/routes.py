@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, request, flash, url_for
 from flask_login import login_user, current_user, logout_user
 from flaskblog import db, bcrypt
 from zakupy_dla_seniora.users.models import User
+import json
+
 main = Blueprint('main', __name__)
 import requests
 
@@ -9,10 +11,42 @@ import requests
 def home():
     return "<h1>Hello</h1>"
 @main.route('/board_test')
-def board():
+def leaderboard():
+
     r = requests.get('http://127.0.0.1:5000/board')
-    print(r)
     return render_template('board.html', data = r.json())
+@main.route('/leaderboard')
+def board():
+
+    r = requests.get('http://127.0.0.1:5000/leaderboards')
+    return render_template('leaderboard.html', data = r.json())
+@main.route('/profile_view')
+def profile():
+    # to jest hardcodowane na 1 tak dla testów
+    r = requests.get('http://127.0.0.1:5000/profile',params={"user_id":"2"})
+    print(r.json())
+    return render_template('profile.html', data = r.json())
+@main.route('/take_order')
+def take():
+
+    # to jest hardcodowane na 1 tak dla testów
+    print(request.args)
+    r = requests.post('http://127.0.0.1:5000/placing',params=request.args)
+    print(r.json())
+    r = requests.get('http://127.0.0.1:5000/board')
+    return render_template('board.html', data = r.json())
+@main.route('/sent_end_placing')
+def end():
+
+    # to jest hardcodowane na 1 tak dla testów
+    print(request.args)
+    r = requests.post('http://127.0.0.1:5000/end_placing',params=request.args)
+    print(r.json())
+    r = requests.get('http://127.0.0.1:5000/board')
+    return render_template('board.html', data = r.json())
+
+# LOGIN ROUTES
+
 @main.route('/login', methods=['GET', 'POST'])
 def login():
     error_message = None
@@ -28,6 +62,7 @@ def login():
             error_message = "Wrong username or password."
             return render_template('login.html', title='Login', message=error_message)
     return render_template('login.html', title='Login')
+    
 @main.route('/register-user', methods=['GET', 'POST'])
 def register_user():
     error_message = None

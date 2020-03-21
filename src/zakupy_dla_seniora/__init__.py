@@ -38,9 +38,11 @@ def register_api_resources(api):
     from zakupy_dla_seniora.placings.resources import PlacingCreation
     api.add_resource(PlacingCreation, '/placing')
 
+    from zakupy_dla_seniora.leaderboards.resources import Leaderboards
+    api.add_resource(Leaderboards, '/leaderboards')
+
     from zakupy_dla_seniora.placings.resources import PlacingEnding
     api.add_resource(PlacingEnding, '/end_placing')
-
 
 def create_app(config_class=Config):
     app = Flask(__name__, static_url_path='/static')
