@@ -1,7 +1,6 @@
 import requests
-
 import spacy
-from spacy import displacy
+import pandas as pd
 
 nlp = spacy.load('pl_model')
 
@@ -13,20 +12,65 @@ geocoder_data = {
     'format': 'json'
 }
 
+def get_location(message, search=True):
 
-def get_location(message,search = True):
     if search:
-        doc = nlp(message)
-        for ent in doc.ents:
-            if ent.label_ == 'GPE':
-                location_text = ent.text
-                geocoder_data['q'] = location_text
-                location = requests.get(geocoder_url, params=geocoder_data)
-                if not 'error' in location.json():
-                    lat = float(location.json()[0]['lat'])
-                    lon = float(location.json()[0]['lon'])
-                    return location_text, lat, lon
-        return 'unk','unk','unk'
+
+        df = pd.read_csv("~/Downloads/places.csv")
+        nlp = spacy.load('pl_model')
+        doc = nlp(message.strip().title())
+
+        places_to_check = []
+        location_text = ""
+        used = []
+        punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+        for token in doc:
+            if token.pos_ == "NUM":
+                used.append(token.text)
+                used.append(token.head.text)
+                for child in token.head.children:
+                    if child.text not in used and child.dep_!="conj":
+                        used.append(child.text)
+            elif token.pos_ == "NOUN" and token.text not in used:
+                places_to_check.append(token)
+        places_to_check.reverse()
+
+        for token in places_to_check:
+            if location_text=="":
+                if token.text in df.values:
+                    location_text = token.text
+                    used.append(token.text)
+                    if token.children:
+                        for child in token.children:
+                            if child.text not in used:
+                                location_text += " " + child.text
+                                if child in places_to_check:
+                                    places_to_check.remove(child)
+                                used.append(child.text)
+                    if(token.head.pos_=="NOUN"):
+                        if token.head.text not in used:
+                            location_text += " " + token.head.text
+                            if token.head in places_to_check:
+                                places_to_check.remove(token.head)
+                            used.append(token.head.text)
+                else:
+                    if token.text not in used:
+                        used.append(token.text)
+                        for child in token.children:
+                            if child.text not in used and child.dep_!="conj":
+                                used.append(child.text)
+        if location_text != "":
+            for letter in location_text:
+                if letter in punctuations:
+                    location_text = location_text.replace(letter, "")
+            geocoder_data['q'] = location_text
+            location = requests.get(geocoder_url, params=geocoder_data)
+            if not 'error' in location.json():
+                lat = float(location.json()[0]['lat'])
+                lon = float(location.json()[0]['lon'])
+                return location_text, lat, lon
+        else:
+            return 'unk', 'unk', 'unk'
     else:
         geocoder_data['q'] = message
         location = requests.get(geocoder_url, params=geocoder_data)
@@ -38,6 +82,5 @@ def get_location(message,search = True):
         else:
             return 'unk', 'unk', 'unk'
 
-
 if __name__ == '__main__':
-    get_location("Poprosze kupić masło Kasia 2 opakowania pozdranwiam Halina Mostowiak, lokalizacja : Gdańsk Zaspa")
+    get_location("Proszę zawieźć 6 bułek pszennych, 3 zupy profi, domestos, do Gdańsk Zaspa")
