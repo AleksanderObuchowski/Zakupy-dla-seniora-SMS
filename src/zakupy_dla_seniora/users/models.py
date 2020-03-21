@@ -28,6 +28,16 @@ class User(db.Model):
         self.create_date = datetime.now(timezone.utc)
         self.verification_code = randint(1000, 9999)
 
+    def __repr__(self):
+        return "<User(uid='%s', display_name='%s', points='%s')>" % (self.uid, self.display_name, self.points)
+
+    def as_json(self):
+        return {
+            'uid': self.uid,
+            'display_name': self.display_name,
+            'points': self.points
+        }
+
     def set_phone(self, phone):
         self.phone = phone
 
