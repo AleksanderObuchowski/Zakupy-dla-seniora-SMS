@@ -76,10 +76,5 @@ def words2num(num):
             if word in HUNDREDS[key]:
                 result += key*100
     return result
-print(words2num("jeden"))
-print(words2num("jedenaście"))
-print(words2num("sto dwadzieścia siedem"))
-
-print(words2num("pół"))
 
 
