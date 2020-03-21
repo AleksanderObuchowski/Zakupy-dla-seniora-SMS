@@ -7,15 +7,15 @@ from zakupy_dla_seniora.config import twilio_sid, twilio_auth_token, twilio_phon
 client = Client(twilio_sid, twilio_auth_token)
 
 sending_parser = reqparse.RequestParser()
-sending_parser.add_argument('uid', help='This field cannot be blank.', required=True, type=str)
+sending_parser.add_argument('user_id', help='This field cannot be blank.', required=True, type=str)
 sending_parser.add_argument('phone', help='This field cannot be blank', required=True, type=str)
 
 
 class SendSMSCode(Resource):
     def post(self):
         arguments = sending_parser.parse_args()
-        uid = arguments['uid']
-        user = User.get_by_uid(uid)
+        user_id = arguments['id']
+        user = User.get_by_id(user_id)
 
         phone = arguments['phone']
         phone = phone.replace(' ', '+')
@@ -35,17 +35,17 @@ class SendSMSCode(Resource):
 
 
 checking_parser = reqparse.RequestParser()
-checking_parser.add_argument('uid', help='This field cannot be blank', required=True)
+checking_parser.add_argument('user_id', help='This field cannot be blank', required=True)
 checking_parser.add_argument('verification_code', help='This field cannot be blank.', required=True, type=int)
 
 
 class CheckSMSCode(Resource):
     def post(self):
         arguments = checking_parser.parse_args()
-        uid = arguments['uid']
+        user_id = arguments['user_id']
         verification_code = arguments['verification_code']
 
-        user = User.get_by_uid(uid)
+        user = User.get_by_id(user_id)
 
         if user.verification_code == verification_code:
             user.set_verified()

@@ -6,8 +6,8 @@ from zakupy_dla_seniora import sql_db as db, bcrypt
 register_parser = reqparse.RequestParser()
 register_parser.add_argument('displayName', help='This field cannot be blank', required=True)
 register_parser.add_argument('email', help='This field cannot be blank', required=True)
-register_parser.add_argument('uid', help='This field cannot be blank', required=True)
 register_parser.add_argument('password', help='This field cannot be blank', required=True)
+
 
 class UserRegistration(Resource):
     def post(self):
@@ -15,9 +15,7 @@ class UserRegistration(Resource):
         new_user = User(
             display_name=data['displayName'],
             email=data['email'],
-            uid=data['uid'],
-            password_hash=bcrypt.generate_password_hash(data['password'])
+            password=bcrypt.generate_password_hash(data['password'])
         )
         new_user.save()
         return {'success': True, 'message': 'Konto zostało stworzone.', 'id': new_user.id}, 200
-

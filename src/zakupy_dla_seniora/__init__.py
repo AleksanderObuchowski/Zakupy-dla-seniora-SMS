@@ -5,10 +5,12 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from zakupy_dla_seniora.config import Config
 
+
 sql_db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
 login_manager.login_view = 'main.login'
+
 
 def register_blueprints(app):
     from zakupy_dla_seniora.main.routes import main
@@ -16,9 +18,6 @@ def register_blueprints(app):
 
 
 def register_api_resources(api):
-    from zakupy_dla_seniora.main.resources import Main
-    api.add_resource(Main, '/main_api')
-
     from zakupy_dla_seniora.users.resources import UserRegistration
     api.add_resource(UserRegistration, '/register')
 
@@ -43,6 +42,7 @@ def register_api_resources(api):
 
     from zakupy_dla_seniora.placings.resources import PlacingEnding
     api.add_resource(PlacingEnding, '/end_placing')
+
 
 def create_app(config_class=Config):
     app = Flask(__name__, static_url_path='/static')

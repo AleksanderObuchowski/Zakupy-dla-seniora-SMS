@@ -21,7 +21,7 @@ def create_users(amount):
             data={
                 'displayName': name,
                 'email': '.'.join(name.split(' ')) + '@gmail.com',
-                'uid': unidecode(''.join(fake.uuid4()))
+                'id': unidecode(''.join(fake.uuid4()))
             }
         )
         print(f'Added User: {name}.')
