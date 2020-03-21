@@ -1,6 +1,8 @@
 import requests
 import spacy
 import pandas as pd
+import json
+from words2numPL import words2num
 
 nlp = spacy.load('pl_model')
 
@@ -24,15 +26,16 @@ def get_location_and_products(message, search=True):
         location_text = ""
         used = []
         punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+        units = ["kg", "l", "litry", "dg", "dag", "g", "deko", "ml", "m", "cm"]
         for token in doc:
             if token.pos_ == "NUM":
-                item = token.text + " " + token.head.text
+                item = [token.text, token.head.text]
                 used.append(token.text)
                 used.append(token.head.text)
                 if token.head.children:
                     for child in token.head.children:
                         if child.text not in used and child.dep_!="conj":
-                            item += " " + child.text
+                            item[1] += " " + child.text
                             used.append(child.text)
                     products.append(item)
             elif token.pos_ == "NOUN" and token.text not in used:
@@ -59,25 +62,41 @@ def get_location_and_products(message, search=True):
                             used.append(token.head.text)
                 else:
                     if token.text not in used:
-                        item = token.text
+                        item = [1, token.text] 
                         used.append(token.text)
                         if token.children:
                             for child in token.children:
                                 if child.text not in used and child.dep_!="conj":
-                                    item += " " + child.text
+                                    item[1] += " " + child.text
                                     used.append(child.text)
                                     products.append(item)
             if token.text not in used:
-                item = token.text
+                item = [1, token.text] 
                 for child in token.children:
                     if child.text not in used and child.dep_!="conj":
-                        item += " " + child.text
+                        item[1] += " " + child.text
                         used.append(child.text)
                 products.append(item)
+        with open('zakupy-dla-seniora-backend/src/products_ranking.json', "r") as jsonFile:
+            products_json = json.load(jsonFile)
         for product in products:
             for letter in product:
                 if letter in punctuations:
                     product = product.replace(letter, "")
+            for word in product[1].split():
+                if word in units:
+                    product[1] = product[1].replace(word, "")
+             try:
+                 product[0] = int(product[0])
+             except:
+                 product[0] = words2num[product[0]]
+             if product[1] in products_json.keys():
+                 products_json[product[1]] += product[0]
+             else:
+                 products_json[product[1]] = product[0]
+         with open('zakupy-dla-seniora-backend/src/products_ranking.json', "w") as jsonFile:
+             json.dump(products_json, jsonFile)
+       
         if location_text != "":
             for letter in location_text:
                 if letter in punctuations:
