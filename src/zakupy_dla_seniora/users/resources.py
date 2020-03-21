@@ -7,7 +7,6 @@ register_parser.add_argument('displayName', help='This field cannot be blank', r
 register_parser.add_argument('email', help='This field cannot be blank', required=True)
 register_parser.add_argument('uid', help='This field cannot be blank', required=True)
 
-
 class UserRegistration(Resource):
     def post(self):
         data = register_parser.parse_args()

@@ -17,6 +17,7 @@ class User(db.Model):
     verification_code = db.Column('verification_code', db.Integer)
     verified = db.Column('verified', db.Boolean, default=False)
     points = db.Column('points', db.Integer, default=0)
+    password_hash = db.Column('password_hash', db.String(255), nullable=False)
 
     placings = db.relationship('Placings', backref='user', cascade='all, delete-orphan', lazy='dynamic')
 

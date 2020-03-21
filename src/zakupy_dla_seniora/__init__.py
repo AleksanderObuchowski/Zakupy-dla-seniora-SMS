@@ -1,10 +1,14 @@
 from flask import Flask
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
+from flask_login import LoginManager
 from zakupy_dla_seniora.config import Config
 
 sql_db = SQLAlchemy()
-
+bcrypt = Bcrypt()
+login_manager = LoginManager()
+login_manager.login_view = 'main.login'
 
 def register_blueprints(app):
     from zakupy_dla_seniora.main.routes import main
