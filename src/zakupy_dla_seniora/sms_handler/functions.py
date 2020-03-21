@@ -14,7 +14,7 @@ geocoder_data = {
     'format': 'json'
 }
 
-def get_location_and_products(message, search=True):
+def get_location(message, search=True):
 
     if search:
 
