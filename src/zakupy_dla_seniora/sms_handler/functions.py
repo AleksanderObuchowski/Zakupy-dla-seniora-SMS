@@ -2,7 +2,7 @@ import requests
 import spacy
 import pandas as pd
 import json
-from zakupy_dla_seniora.sms_handler.words2numPL import words2num
+from zakupy_dla_seniora.sms_handler.word2numPL import words2num
 
 nlp = spacy.load('pl_model')
 
@@ -86,16 +86,16 @@ def get_location(message, search=True):
             for word in product[1].split():
                 if word in units:
                     product[1] = product[1].replace(word, "")
-             try:
-                 product[0] = int(product[0])
-             except:
-                 product[0] = words2num[product[0]]
-             if product[1] in products_json.keys():
-                 products_json[product[1]] += product[0]
-             else:
-                 products_json[product[1]] = product[0]
-         with open('zakupy-dla-seniora-backend/src/zakupy_dla_seniora_backend/sms_handler/products_ranking.json', "w") as jsonFile:
-             json.dump(products_json, jsonFile)
+            try:
+                product[0] = int(product[0])
+            except:
+                product[0] = words2num[product[0]]
+            if product[1] in products_json.keys():
+                products_json[product[1]] += product[0]
+            else:
+                products_json[product[1]] = product[0]
+        with open('zakupy-dla-seniora-backend/src/zakupy_dla_seniora_backend/sms_handler/products_ranking.json', "w") as jsonFile:
+            json.dump(products_json, jsonFile)
        
         if location_text != "":
             for letter in location_text:
@@ -113,7 +113,6 @@ def get_location(message, search=True):
         geocoder_data['q'] = message
         location = requests.get(geocoder_url, params=geocoder_data)
         if not 'error' in location.json():
-            print(location.json())
             lat = float(location.json()[0]['lat'])
             lon = float(location.json()[0]['lon'])
             return message, lat, lon

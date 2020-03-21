@@ -53,5 +53,6 @@ def create_app(config_class=Config):
     register_api_resources(api)
 
     sql_db.init_app(app)
+    login_manager.init_app(app)
 
     return app
