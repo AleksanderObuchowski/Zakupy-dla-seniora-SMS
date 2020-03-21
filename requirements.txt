@@ -1,6 +1,8 @@
 Flask==1.1.1
 Flask-RESTful==0.3.8
 Flask-SQLAlchemy==2.4.1
+Flask-Bcrypt==0.7.1
+Cython==0.29.15
 twilio==6.36.0
 mysqlclient==1.4.6
 DateTime==4.3

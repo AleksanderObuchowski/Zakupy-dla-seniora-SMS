@@ -1,6 +1,144 @@
-# zakupy-dla-seniora-backend
 
-## App configuration
+<div align="center">
+
+![zakupy sms dla seniora logo](https://gitlab.com/artifai-extended-edition/zakupy-dla-seniora-backend/-/raw/dev/src/zakupy_dla_seniora/static/logo.png)
+
+</div>
+
+# Zakupy SMS dla Seniora
+
+:pl:
+> Celem aplikacji jest stworzenie tablicy ogłoszeń, gdzie seniorzy za pośrednictwem SMS mogą poprosić o
+> zrobienie zakupów, a chętna osoba, po uprzednim kontakcie przyniesie je pod drzwi.
+
+:gb:
+> The aim of the application is creation of a notice board, where seniors can ask for help with shopping
+> via SMS and a volunteer, after contacting them will deliver it to their door.
+
+**[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)**
+
+
+
+![Strona startowa wolontariusza](https://i.imgur.com/Gn0QCCZ.png)
+
+---
+
+## Spis Treści / Table of Contents
+
+
+- [Cel projektu / Intro & Goal](#cel-projektu--intro--goal)
+- [Grupa docelowa / Who is it for?](#grupa-docelowa--who-is-it-for)
+- [Motywacja / What is our motivation?](#motywacja--what-is-our-motivation)
+- [Funkcjonalność / Features](#funkcjonalno--features)
+- [Tworzone Funkcjonalność / Features in Progress](#tworzone-funkcjonalno--features-in-progress)
+- [Planowane Funkcjonalność / Planned Features](#planowane-funkcjonalno--planned-features)
+- [Team](#team)
+- [Installation](#installation)
+- [License](#license)
+
+
+---
+
+## Cel projektu / Intro & Goal
+
+:pl:
+Celem projektu jest rozwiązanie problemów osób starszych w trakcie epidemii.  W ciągu ostatnich dni tysiące wolontariuszy wyrażało chęć pomocy np. w zrobieniu zakupów na internetowych serwisach społecznościowych. Niestety większość osób starszych, będących grupą docelową tego rodzaju usługi, korzysta wyłącznie z tradycyjnych mediów, takich jak smsy czy gazeta. Założeniem naszej platformy jest  stworzenie pomostu pomiędzy dwiema grupami społecznymi korzystającym z rozbieżnych środków komunikacji. "Zakupy dla seniora" to aplikacja łącząca seniorów i wolontariuszy, w szybki i intuicyjny sposób, bez pośredników.
+
+:gb:
+The aim of the project is to solve the problems of the elderly people during the epidemy. In the last few days lots of volunteers offered to help eg. in doing shopping via social media. Unfortunately the majority of the elders, who are the target group for this kind of service, use only traditional media, such as text messages or newspapers. Our idea is to create a bridge between two distinct social groups, utilizing different means of communication.  “SMS Shopping for a Senior” is an app bringing together volunteers and seniors in a fast and intuitive way, without intermediaries.
+
+## Grupa docelowa / Who is it for?
+
+:pl:
+W naszej aplikacji wyróżniliśmy dwa rodzaje użytkowników - seniora i wolontariusza.
+Senior - porozumiewa się z aplikacją za pomocą wiadomości SMS
+Wolontariusz -  korzysta ze strony internetowej.
+
+:gb:
+We have distinguished two types of users of our app - a senior and a volunteer. Senior communicates through SMS and a volunteer uses a website.
+Senior - communicates through SMS
+Volunteer - communicates through web application
+
+## Motywacja / What is our motivation?
+![Chętni do pomocy](https://media.discordapp.net/attachments/689575084171591848/691039389475668098/help.gif)
+
+
+:pl:
+Gdy tylko zamknięto uniwersytety, prosiliśmy naszych dziadków, by unikali wychodzenia na zewnątrz i troszczyliśmy się o ich potrzeby. Robiliśmy zakupy, wysyłaliśmy listy, kupowaliśmy leki i opłacaliśmy rachunki. Przez cały czas jednak krążyła nam po głowie myśl: a co z osobami starszymi, które nie mają krewnych na wyciągnięcie ręki? Mając cały czas na uwadze ten problem, dołączyliśmy do hackathonu i bez zbędnych ceregieli, przystąpiliśmy do pracy.
+
+:gb:
+Ever since the university was closed, we advised our grandparents to stay home and made sure all their needs are satisfied. We did the shopping, sent letters, bought medicines and paid the bills. But all this time we were haunted by a thought: how do the elders, whose families leave far away from them cope? With that idea floating in mind, we found the information about the hackathon and without further ado, we put the idea into practice.
+
+
+## Funkcjonalność / Features
+
+:pl:
+- Odbieranie wiadomości SMS
+- Detekcja lokalizacji na podstawie parsera zależnościowego
+- Wizualizacja lokalizacji wiadomości na mapie
+- Możliwość podjęcia zlecenia przez wolontariusza
+- Ranking najaktywniejszych wolontariuszy
+- System opinii
+- Rejestracja oraz logowanie wolontariusza
+- System umożliwiający integrację z innymi aplikacjami (REST API)
+- Responsywny design
+
+:gb:
+- Receiving SMS messages
+- Localization detection based on dependency parser
+- Visualization of message locations
+- Ability to take on a order
+- Most active volunteers leader board
+- Opinion system
+- Registration and login of volunteer
+- System allowing integration with other applications (REST API)
+- Responsive design
+
+## Tworzone Funkcjonalność / Features in Progress
+
+:pl:
+- Weryfikacja woluntariuszy numerem telefonu
+- Klasyfikacja najczęściej zamawianych produktów
+
+:gb:
+- Phone number verification for volunteers
+- Classification of most popular products
+
+## Planowane Funkcjonalność / Planned Features
+
+:pl:
+- Płatność SMS
+- Aplikacja mobilna dla wolontariuszy
+- Możliwość składania zamówień za pomocą asystenta głosowego
+- Możliwość składania zamówień za pomocą strony internetowej lub aplikacji mobilnej
+- Integracja z Social Media
+
+:gb:
+- SMS payment
+- Mobile application for volunteers
+- Voice assistant orders placing
+- Mobile application or website orders placing
+- Social Media integration
+
+---
+
+## Team
+<div align="center">
+
+| <a href="https://www.linkedin.com/in/aleksander-obuchowski/" target="_blank">**Aleksander Obuchowski**</a> | <a href="https://www.linkedin.com/in/roman-karski-172013187/" target="_blank">**Roman Karski**</a> | <a href="https://www.linkedin.com/in/bartosz-rydzi%C5%84ski-4220a3186/" target="_blank">**Bartosz Rydziński**</a> | <a href="https://www.linkedin.com/in/mateusz-anikiej/" target="_blank">**Mateusz Anikiej**</a> | <a href="https://www.linkedin.com/in/barbara-klaudel-5b9249178/" target="_blank">**Barbara Klaudel**</a> |
+|:---------:|:---------:|:---------:|:---------:|:---------:|
+| [![Aleksander Obuchowski](https://github.com/AleksanderObuchowski.png?size=150)](https://github.com/AleksanderObuchowski)    | [![Roman Karski](https://github.com/romankarski.png?size=150)](https://github.com/romankarski) | [![Bartosz Rydziński](https://github.com/Notheryne.png?size=150)](https://github.com/Notheryne)    | [![Mateusz Anikiej](https://github.com/AnakinM.png?size=150)](https://github.com/AnakinM) | [![Barbara Klaudel](https://github.com/A-Huli.png?size=150)](https://github.com/A-Huli)  |
+| <a href="https://github.com/AleksanderObuchowski" target="_blank">`Team Lead / NLP Research Engineer`</a> | <a href="https://github.com/romankarski" target="_blank">`Data Engineer / Backend Developer`</a> | <a href="https://github.com/Notheryne" target="_blank">`Backend Developer / Database Engineer`</a> | <a href="https://github.com/AnakinM" target="_blank">`Backend Developer / DevOps`</a> | <a href="https://github.com/A-Huli" target="_blank">`Research Engineer / Product Manager`</a> |
+
+</div>
+
+## FAQ
+
+- **How do I do *specifically* so and so?**
+    - No problem! Just do this.
+
+
+## Installation
 
 ### Install mysql
 To install mysql follow instructions of this site:
@@ -9,29 +147,27 @@ Then you need to create database and user for the app. If you are not in the mys
 Next run \
 `CREATE DATABASE zakupy_dla_seniora_db CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;`\
 And then you need to create new user by running   
-`CREATE USER 'artifai'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';`   
+`CREATE USER 'your_user_name'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';`   
 with your password.
 Finally, grant your user privileges to run queries on created database:   
-`GRANT ALL PRIVILEGES ON zakupy_dla_seniora_db.* TO 'artifai'@'localhost';`
+`GRANT ALL PRIVILEGES ON zakupy_dla_seniora_db.* TO 'your_user_name'@'localhost';`
 
-### Make config file
+### Create config file
 Application is using __config.py__ file for flack variables initialization (like database connection string). 
 This file should be placed in `/src/zakupy_dla_seniora/config.py` and should be defined as follows:
 
 ```python
-from secrets import token_hex
-
-mysql_user_name = 'artifai'
-mysql_user_password = ''  # put your mysql artifai user password
+mysql_user_name = '' # put your mysql user name
+mysql_user_password = ''  # put your mysql user password
 mysql_server = 'localhost'
 mysql_database = 'zakupy_dla_seniora_db'
 
-twilio_sid = 'AC5afa0c6a9be65fade4dc61ae23169dc7'  # put your twilio sid
-twilio_auth_token = '3ab51dd71c656bec8f0dabeccede044d'  # put your twilio auth_token
-twilio_phone = '+12057109660'
+twilio_sid = ''  # put your twilio sid
+twilio_auth_token = ''  # put your twilio auth_token
+twilio_phone = '+' # put your twilio phone number
 
 class Config:
-    SECRET_KEY = token_hex(16)#  '' # put your secret key
+    SECRET_KEY = '' # put your secret key
     SQLALCHEMY_DATABASE_URI = f'mysql://{mysql_user_name}:{mysql_user_password}@{mysql_server}/{mysql_database}?charset=utf8mb4'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 ```
@@ -53,122 +189,13 @@ You should paste it in terminal for exporting dynamic library to avoid error (*.
 ### Run app
 Now to run the app navigate to `/src/` and use command `python3 run.py`
 
-## App development
 
-### Add new module
-To create new module, create new folder in path `/src/zakupy_dla_seniora/`. Folder name is your module name. Now initialize
-your new module by creating `__init__.py` file inside it.
+---
 
-### Adding routes
-To define routes for your module create new file inside it named `routes.py`. The file template, containing all necessary code goes as:   
-```python
-from flask import Blueprint
+## License
 
-your_module_name = Blueprint('your_module_name', __name__)
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-@your_module_name.route('/')
-def function_name():
-    return "<h1>Hello</h1>"
-```
-Now you need to register your routes blueprint in `/src/zakupy_dla_seniora/__init__.py` file.
-Open this file and in `register_blueprints` function add following lines:
-```python
-from zakupy_dla_seniora.your_module_name.routes import your_module_name
-app.register_blueprint(your_module_name)
-```
-
-### Adding resources
-```python
-from flask_restful import Resource
-
-class YourResourceName(Resource):
-    def http_method(self):  # probably post() or get()
-        return {'success': True, 'other_data': data}
-```
-Now you need to register your resource in `src/zakupy_dla_seniora/__init__.py` file.
-Open this file and in `register_api_resources` function add following lines:
-```python
-from zakupy_dla_seniora.your_module_name.resources import YourResourceName
-api.add_resource(YourResourceName, '/path/to/your/resource')
-```
-
-### Adding models
-If your module needs to store information in database, you need to consider creating `models.py` file inside it.
-```python
-from zakupy_dla_seniora import mysql_db
-
-class Your_Model_Name(mysql_db.Model):
-    # Your fields definitions
-```
-
-### Adding more functions
-If you need to define more functions for your module, you can create `functions.py` file containing your functions definitions.
-The file should look like:
-```python
-# imports section
-
-def function_name_1():
-    # stuff
-
-def function_name_2():
-    # stuff
-```
-
-## Features
-
-### Users
-
-##### Model Fields
-
-|id|name|first_name|last_name|password_hash|create_date|phone|verification_code|verified|points|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|int|varchar|varchar|varchar|varchar|datetime|varchar|int|bool|int|
-
-
-##### Endpoints
-- POST: `/register`
-    - params:
-
-        |name|first_name|last_name|password|phone|
-        |:---:|:---:|:---:|:---:|:---:|
-        |string|string|string|string|string|string|
-
-    - answer:
-
-        |success|message|
-        |:---:|:---:
-        |boolean|string|
-
-### SMS Code Verification
-
-##### Endpoints
-- POST: `/send_code`
-    - params: phone (string)
-    - answer:
-
-        |success|code|number|
-        |:---:|:---:|:---:|
-        |boolean|int|string|
-
-- POST: `/check_code`
-    - params: phone (string), code (int)
-    - answer:
-
-        |success|message|
-        |:---:|:---:|
-        |boolean|string|
-
-### BoardView
-- GET: `/board`
-    - params:
-
-        |latitude|longitude|radius|
-        |:---:|:---:|:---:|
-        |float|float|float|
-
-    - answer:
-
-        |success|data|
-        |:---:|:---:|
-        |boolean|JSON|
-
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
+- Copyright 2015 © <a href="http://fvcproductions.com" target="_blank">FVCproductions</a>.
+- Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
