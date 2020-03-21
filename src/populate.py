@@ -79,7 +79,7 @@ def create_messages(amount):
             body += " " + products[randint(0, len(products) - 1)] + ", "
         body += ' ' + location_phrases[randint(0, len(location_phrases)-1)]
         location = " " + cities[randint(0, len(cities) - 1)] + " "
-        location += districts_gdansk[randint(0, len(districts_gdansk)-1)] if location == "Gdańsk" \
+        location += districts_gdansk[randint(0, len(districts_gdansk)-1)] if location == " Gdańsk " \
             else districts_warszawa[randint(0, len(districts_warszawa)-1)]
         lower = randint(0, 1)
         location = location.lower() if lower else location
@@ -117,6 +117,6 @@ def create_placings(amount):
 
 if __name__ == '__main__':
     amount_ = 20
-    create_users(amount_)
+    # create_users(amount_)
     create_messages(amount_)
-    create_placings(amount_)
+    # create_placings(amount_)

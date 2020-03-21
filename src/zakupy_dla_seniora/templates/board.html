@@ -21,7 +21,6 @@
         }
         #mapcard{
             height: 85vh;
-            width: 100%;
 
         }
                 footer {
@@ -37,29 +36,54 @@
     </style>
 </head>
 <body>
+<nav class="uk-navbar-container uk-margin">
+            <div class="uk-container">
+                <div class="uk-navbar">
+                    <div class="uk-navbar-left">
 
-</div>
-<nav class="uk-navbar-container-primary uk-primary" uk-navbar>
-    <div class="uk-navbar-left">
-        <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="">Zakupy dla wnuczka</a></li>
-        </ul>
-    </div>
-</nav>
-   <div class="uk-container" style="height: 80%">
-    <div class="uk-card-default  uk-card-body uk-padding-small uk-text-center" id="mapcard">
-        <div id="mapid"></div>
-    </div>
-</div>
+                        <a class="uk-navbar-item uk-logo" href="#">Zakupy dla seniora</a>
 
-   <div class="uk-container" style="height: 80%">
-    <div class="uk-grid uk-text-center" uk-grid>
-{% for d in data['data'] %}
-    <div  class="uk-margin uk-card uk-card-default uk-card-body uk-width-1-2@m">
-    <h3 class="uk-card-title">{{d['message_location']}}</h3>
-    <p>{{ d['message_content'] }}</p>
-</div>
-{% endfor %}
+                    </div>
+                    <div class="uk-navbar-center">
+
+                        <ul class="uk-navbar-nav">
+                            <li><a href="#">Ogłoszenia</a></li>
+                            <li><a href="#">Tablica Leaderów</a></li>
+                            <li><a href="#">Profil</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="uk-navbar-right">
+
+                        <div class="uk-navbar-item">
+                            <ul class="uk-navbar-nav">
+                                <li>
+                                   <a href="#">Wyloguj</a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+<div class="uk-child-width-1-2@l" uk-grid="">
+
+    <div class="uk-container" style="height: 80%">
+        <div class="uk-card-default  uk-card-body uk-padding-small uk-text-center" id="mapcard">
+            <div id="mapid"></div>
+        </div>
+    </div>
+
+    <div class="uk-container" style="height: 90vh;overflow: scroll;">
+        {% for d in data['data'] %}
+            <div class="uk-margin uk-card uk-card-default uk-card-body uk-margin-auto">
+                <h3 class="uk-card-title">{{ d['message_location'] }}</h3>
+                <p>{{ d['message_content'] }}</p>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
 <script>
