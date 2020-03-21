@@ -2,7 +2,7 @@ import requests
 import spacy
 import pandas as pd
 import json
-from words2numPL import words2num
+from zakupy_dla_seniora.sms_handler.words2numPL import words2num
 
 nlp = spacy.load('pl_model')
 
@@ -77,7 +77,7 @@ def get_location_and_products(message, search=True):
                         item[1] += " " + child.text
                         used.append(child.text)
                 products.append(item)
-        with open('zakupy-dla-seniora-backend/src/products_ranking.json', "r") as jsonFile:
+        with open('zakupy-dla-seniora-backend/src/zakupy_dla_seniora_backend/sms_handler/products_ranking.json', "r") as jsonFile:
             products_json = json.load(jsonFile)
         for product in products:
             for letter in product:
@@ -94,7 +94,7 @@ def get_location_and_products(message, search=True):
                  products_json[product[1]] += product[0]
              else:
                  products_json[product[1]] = product[0]
-         with open('zakupy-dla-seniora-backend/src/products_ranking.json', "w") as jsonFile:
+         with open('zakupy-dla-seniora-backend/src/zakupy_dla_seniora_backend/sms_handler/products_ranking.json', "w") as jsonFile:
              json.dump(products_json, jsonFile)
        
         if location_text != "":
