@@ -18,7 +18,7 @@ def get_location(message, search=True):
 
     if search:
 
-        df = pd.read_csv("zakupy-dla-seniora-backend/places.csv")
+        df = pd.read_csv("zakupy_dla_seniora/sms_handler/places.csv")
         nlp = spacy.load('pl_model')
         doc = nlp(message.strip().title())
         products = []
@@ -77,25 +77,28 @@ def get_location(message, search=True):
                         item[1] += " " + child.text
                         used.append(child.text)
                 products.append(item)
-        with open('zakupy-dla-seniora-backend/src/zakupy_dla_seniora_backend/sms_handler/products_ranking.json', "r") as jsonFile:
-            products_json = json.load(jsonFile)
+        try:
+            with open('zakupy_dla_seniora//sms_handler/products_ranking.json', "r") as jsonFile:
+                products_json = json.load(jsonFile)
+        except:
+            products_json = {}
         for product in products:
-            for letter in product:
+            for letter in product[1]:
                 if letter in punctuations:
-                    product = product.replace(letter, "")
+                    product[1] = product[1].replace(letter, "")
             for word in product[1].split():
                 if word in units:
                     product[1] = product[1].replace(word, "")
             try:
-                product[0] = int(product[0])
+                 product[0] = int(product[0])
             except:
-                product[0] = words2num[product[0]]
+                 product[0] = words2num(product[0])
             if product[1] in products_json.keys():
-                products_json[product[1]] += product[0]
+                 products_json[product[1]] += product[0]
             else:
-                products_json[product[1]] = product[0]
-        with open('zakupy-dla-seniora-backend/src/zakupy_dla_seniora_backend/sms_handler/products_ranking.json', "w") as jsonFile:
-            json.dump(products_json, jsonFile)
+                 products_json[product[1]] = product[0]
+        with open('zakupy_dla_seniora/sms_handler/products_ranking.json', "w+") as jsonFile:
+             json.dump(products_json, jsonFile)
        
         if location_text != "":
             for letter in location_text:
