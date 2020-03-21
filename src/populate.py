@@ -81,8 +81,6 @@ def create_messages(amount):
         location = " " + cities[randint(0, len(cities) - 1)] + " "
         location += districts_gdansk[randint(0, len(districts_gdansk)-1)] if location == "Gdańsk" \
             else districts_warszawa[randint(0, len(districts_warszawa)-1)]
-        lower = randint(0, 1)
-        location = location.lower() if lower else location
         body +=  location
         from_ = f'+48{randint(100000000, 999999999)}'
 
