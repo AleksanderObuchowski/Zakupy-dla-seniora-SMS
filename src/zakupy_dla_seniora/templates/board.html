@@ -2,9 +2,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css"/>
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js"></script>
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+<style>
+        #mapid {
+            height: 100%;
+        }
+        #mapcard{
+            height: 85vh;
+            width: 100%;
+
+        }
+                footer {
+            /*position: absolute;*/
+            bottom: 0; !important;
+            width: 100%;
+            padding-top: 15px;
+        }
+        .footer-card{
+            padding: 0px;
+
+        }
+    </style>
 </head>
 <body>
-$END$
+
+</div>
+<nav class="uk-navbar-container-primary uk-primary" uk-navbar>
+    <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="">Zakupy dla wnuczka</a></li>
+        </ul>
+    </div>
+</nav>
+   <div class="uk-container" style="height: 80%">
+    <div class="uk-card-default  uk-card-body uk-padding-small uk-text-center" id="mapcard">
+        <div id="mapid"></div>
+    </div>
+</div>
+
+   <div class="uk-container" style="height: 80%">
+    <div class="uk-grid uk-text-center" uk-grid>
+{% for d in data['data'] %}
+    <div  class="uk-margin uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    <h3 class="uk-card-title">{{d['message_location']}}</h3>
+    <p>{{ d['message_content'] }}</p>
+</div>
+{% endfor %}
+</div>
+
+<script>
+    var mymap = L.map('mapid').setView([52.1009833, 19.100852], 7);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 30,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoiYXZpZW5pciIsImEiOiJjam9mbmduMWkwMTNwM2tyeDJnbmkwc2tkIn0.IDeZinspovU6WJFNTH4I-g'
+    }).addTo(mymap);
+
+    {% for d in data['data']%}
+    var circle = L.circle([{{d['message_location_lat']}}, {{d['message_location_lon']}}], {
+    color: '#3f51b5',
+    fillColor: '#aab6fe',
+    fillOpacity: 0.5,
+    radius: 500
+}).bindPopup("{{ d['message_location'] }}").addTo(mymap);
+
+    {% endfor %}
+
+</script>
 </body>
 </html>
