@@ -11,7 +11,7 @@ client = Client(twilio_sid, twilio_auth_token)
 
 
 def new_message(message_content, phone_number):
-    products, message_location, lat, lon = get_location(message_content)
+    message_location, lat, lon = get_location(message_content)
     if message_location == 'unk':
         db_new_message = Messages(
             message_content=message_content,
