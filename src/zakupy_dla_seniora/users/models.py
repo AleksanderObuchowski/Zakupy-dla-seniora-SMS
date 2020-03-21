@@ -1,19 +1,19 @@
 from zakupy_dla_seniora import sql_db as db, login_manager
-from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime, timezone
 from random import randint
 from flask_login import UserMixin
 from zakupy_dla_seniora.placings.models import Placings
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.filter_by(id=user_id).first()
+
 
 class User(db.Model, UserMixin):
     __tablename__ = 'user'
     id = db.Column('id', db.Integer, primary_key=True)
     email = db.Column('email', db.String(100), unique=True, nullable=False)
-    uid = db.Column('uid', db.String(255), unique=True)
     display_name = db.Column('display_name', db.String(35), unique=True, nullable=False)
     create_date = db.Column('create_date', db.DateTime)
     phone = db.Column('phone', db.String(12), unique=True)
@@ -34,11 +34,11 @@ class User(db.Model, UserMixin):
         self.verification_code = randint(1000, 9999)
 
     def __repr__(self):
-        return "<User(uid='%s', display_name='%s', points='%s')>" % (self.uid, self.display_name, self.points)
+        return "<User(id='%s', display_name='%s', points='%s')>" % (self.id, self.display_name, self.points)
 
     def as_json(self):
         return {
-            'uid': self.uid,
+            'id': self.id,
             'display_name': self.display_name,
             'points': self.points
         }
@@ -51,10 +51,6 @@ class User(db.Model, UserMixin):
 
     def set_verified(self):
         self.verified = True
-
-    @classmethod
-    def get_by_uid(cls, uid):
-        return cls.query.filter_by(uid=uid).first()
 
     @classmethod
     def get_by_id(cls, id_):

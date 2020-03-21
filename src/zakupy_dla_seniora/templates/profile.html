@@ -50,7 +50,7 @@
 
         <div class="navbar-collapse" id="navbar_collapse">
             <ul class="uk-navbar-nav">
-                <li class="uk-parent"><a href="/board_test">Ogłoszenia</a></li>
+                <li class="uk-parent"><a href="/board_view">Ogłoszenia</a></li>
                 <li class="uk-parent"><a href="/leaderboard">Najlepsi wolontariusze</a></li>
                 <li class="uk-active"><a href="/profile">Profil</a></li>
 
@@ -84,7 +84,7 @@
         <div class="uk-margin uk-card uk-card-hover uk-card-default uk-card-body uk-margin-auto">
             <h3 class="uk-card-title">{{ d['message_location'] }}</h3>
             {%  if not d['message_status'] == 'waiting for ending approval'%}
-            <a href ="/sent_end_placing?user_id=2&message_id={{d['id']}}" style="float: right;" align="right" class="uk-button uk-button-primary uk-margin-left">Zakończ
+            <a href ="/send_end_placing?user_id=2&message_id={{d['id']}}" style="float: right;" align="right" class="uk-button uk-button-primary uk-margin-left">Zakończ
             </a>
             {% endif %}
             <p>{{ d['message_content'] }}</p>

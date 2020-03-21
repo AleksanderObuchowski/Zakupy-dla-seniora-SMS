@@ -28,5 +28,4 @@ class ProfileView(Resource):
             info['placing_status'] = placing['placing_status']
             data['placings'].append(info)
 
-
         return {'success': True, 'data': data}, 200

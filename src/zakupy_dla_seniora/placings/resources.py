@@ -16,8 +16,7 @@ class PlacingCreation(Resource):
         )
         new_placing.save()
 
-
-        return placing_creation_message(user_id = new_placing.user_id, message_id = new_placing.message_id)
+        return placing_creation_message(user_id=new_placing.user_id, message_id=new_placing.message_id)
 
 
 class PlacingEnding(Resource):
@@ -31,5 +30,4 @@ class PlacingEnding(Resource):
 
         placing.save()
 
-        return ending_approval_message(user_id = data["user_id"], message_id = data["message_id"])
-        #return
+        return ending_approval_message(user_id=data["user_id"], message_id=data["message_id"])
