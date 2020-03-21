@@ -108,7 +108,7 @@ def get_location_and_products(message, search=True):
                 lon = float(location.json()[0]['lon'])
                 return location_text, lat, lon
         else:
-            return products, 'unk', 'unk', 'unk'
+            return 'unk', 'unk', 'unk'
     else:
         geocoder_data['q'] = message
         location = requests.get(geocoder_url, params=geocoder_data)
@@ -116,9 +116,9 @@ def get_location_and_products(message, search=True):
             print(location.json())
             lat = float(location.json()[0]['lat'])
             lon = float(location.json()[0]['lon'])
-            return products, message, lat, lon
+            return message, lat, lon
         else:
-            return products, 'unk', 'unk', 'unk'
+            return 'unk', 'unk', 'unk'
 
 if __name__ == '__main__':
     get_location("Proszę zawieźć 6 bułek pszennych, 3 zupy profi, domestos, do Gdańsk Zaspa")
