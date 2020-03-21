@@ -23,7 +23,7 @@ def board():
 @main.route('/profile_view')
 def profile():
     # to jest hardcodowane na 1 tak dla testów
-    r = requests.get('http://127.0.0.1:5000/profile',params={"user_id":"2"})
+    r = requests.get('http://127.0.0.1:5000/profile',params={"user_id":current_user.id})
     return render_template('profile.html', data = r.json())
 @main.route('/take_order')
 def take():
