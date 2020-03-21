@@ -41,7 +41,6 @@ def register_api_resources(api):
     api.add_resource(PlacingEnding, '/end_placing')
 
 def create_app(config_class=Config):
-    global simple_geo_ip
     app = Flask(__name__, static_url_path='/static')
     app.config.from_object(Config)
     api = Api(app)
