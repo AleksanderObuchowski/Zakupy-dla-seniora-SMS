@@ -36,6 +36,20 @@ class Messages(db.Model):
             'message_location_lat': self.message_location_lat,
             'message_location_lon': self.message_location_lon,
             'message_status': self.message_status,
+            # 'message_precise_location': self.message_precise_location
+            # 'placings': [placing.prepare_board_view() for placing in self.placings]
+        }
+
+    def prepare_profile_view(self):
+        return {
+            'id': self.id,
+            'message_content': self.message_content,
+            'message_date': str(self.message_date),
+            'message_location': self.message_location,
+            # 'message_location_lat': self.message_location_lat,
+            # 'message_location_lon': self.message_location_lon,
+            'message_status': self.message_status,
+            'message_precise_location': self.message_precise_location
             # 'placings': [placing.prepare_board_view() for placing in self.placings]
         }
 

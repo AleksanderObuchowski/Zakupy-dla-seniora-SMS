@@ -12,18 +12,21 @@ profile_view_parser.add_argument('user_id', required=True)
 class ProfileView(Resource):
     def get(self):
         user_id = profile_view_parser.parse_args()['user_id']
-
+        user = User.query.filter(User.id == user_id).first()
         placings = Placings.query.filter(Placings.user_id == user_id).all()
 
-        data = []
+        data = {
+            "name": user.display_name,
+            "points": user.points,
+            "placings": []
+        }
 
         placings = [placing.prepare_board_view() for placing in placings]
         for placing in placings:
 
-            info = Messages.query.filter(Messages.id == placing['message_id']).first().prepare_board_view()
+            info = Messages.query.filter(Messages.id == placing['message_id']).first().prepare_profile_view()
             info['placing_status'] = placing['placing_status']
-            del info['id']
-            data.append(info)
+            data['placings'].append(info)
 
 
         return {'success': True, 'data': data}, 200

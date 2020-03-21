@@ -77,6 +77,11 @@ def got_address_message(last_message, message_content):
     last_message.save()
 
     response_message = f'Wolontariusz został poinformowany o twoim adresie, niedługo możesz spodziewać sie zakupów!'
+    placing = Placings.query.filter(Placings.message_id == last_message.id).order_by(
+        Placings.placing_date.desc()).first()
+    placing.placing_status = "Adress given"
+    print(placing.id)
+    placing.save()
     try:
         client.messages.create(
             to=last_message.phone_number,
