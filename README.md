@@ -66,8 +66,10 @@ Senior - communicates through SMS
 Volunteer - communicates through web application
 
 ## Motywacja / What is our motivation?
-![Chętni do pomocy](https://media.discordapp.net/attachments/689575084171591848/691039389475668098/help.gif)
+<div align="center">
 
+![Chętni do pomocy](https://media.discordapp.net/attachments/689575084171591848/691039389475668098/help.gif)
+</div>
 
 :pl:
 Gdy tylko zamknięto uniwersytety, prosiliśmy naszych dziadków, by unikali wychodzenia na zewnątrz i troszczyliśmy się o ich potrzeby. Robiliśmy zakupy, wysyłaliśmy listy, kupowaliśmy leki i opłacaliśmy rachunki. Przez cały czas jednak krążyła nam po głowie myśl: "a co z osobami starszymi, które nie mają krewnych na wyciągnięcie ręki?"." Mając cały czas na uwadze ten problem, dołączyliśmy do hackathonu i bez zbędnych ceregieli przystąpiliśmy do pracy.
