@@ -6,7 +6,7 @@
 
 # Zakupy SMS dla Seniora
 
-:pl:
+🇵🇱
 > Celem aplikacji jest umożliwienie komunikacji pomiędzy seniorami a wolontariuszmi w prosty i intuicyjny dla obu stron sposób. 
 >Komunikacja odbywa się przy pomocy tablicy ogłoszeń, gdzie seniorzy za pośrednictwem SMS mogą poprosić o
 > zrobienie zakupów, a chętna osoba, po uprzednim kontakcie, przyniesie je pod drzwi.
@@ -47,7 +47,7 @@ creating a notice board, where seniors can ask for help with shopping
 
 ## Cel projektu / Intro & Goal
 
-:pl:
+🇵🇱
 Celem projektu jest rozwiązanie problemów osób starszych w trakcie epidemii.  W ciągu ostatnich dni tysiące wolontariuszy wyraziło chęć pomocy np. w zrobieniu zakupów na internetowych serwisach społecznościowych. Niestety większość osób starszych, będących grupą docelową tego rodzaju usługi, korzysta wyłącznie z tradycyjnych mediów, takich jak smsy czy gazeta. Założeniem naszej platformy jest  stworzenie pomostu pomiędzy dwiema grupami społecznymi korzystającym z rozbieżnych środków komunikacji. "Zakupy dla seniora" to aplikacja łącząca seniorów i wolontariuszy, w szybki i intuicyjny sposób, bez pośredników.
 
 :gb:
@@ -55,7 +55,7 @@ The aim of the project is to solve the problems of elderly people during the epi
 
 ## Grupa docelowa / Who is it for?
 
-:pl:
+🇵🇱
 W naszej aplikacji wyróżniliśmy dwa rodzaje użytkowników - seniora i wolontariusza.
 Senior - porozumiewa się z aplikacją za pomocą wiadomości SMS
 Wolontariusz -  korzysta ze strony internetowej.
@@ -71,7 +71,7 @@ Volunteer - communicates through web application
 ![Chętni do pomocy](https://media.discordapp.net/attachments/689575084171591848/691039389475668098/help.gif)
 </div>
 
-:pl:
+🇵🇱
 Gdy tylko zamknięto uniwersytety, prosiliśmy naszych dziadków, by unikali wychodzenia na zewnątrz i troszczyliśmy się o ich potrzeby. Robiliśmy zakupy, wysyłaliśmy listy, kupowaliśmy leki i opłacaliśmy rachunki. Przez cały czas jednak krążyła nam po głowie myśl: "a co z osobami starszymi, które nie mają krewnych na wyciągnięcie ręki?"." Mając cały czas na uwadze ten problem, dołączyliśmy do hackathonu i bez zbędnych ceregieli przystąpiliśmy do pracy.
 
 :gb:
@@ -80,7 +80,7 @@ Ever since the universities wewe closed, we advised our grandparents to stay hom
 
 ## Funkcjonalność / Features
 
-:pl:
+🇵🇱
 - Odbieranie wiadomości SMS
 - Detekcja lokalizacji na podstawie parsera zależnościowego
 - Wizualizacja lokalizacji zgłoszeń na mapie
@@ -104,7 +104,7 @@ Ever since the universities wewe closed, we advised our grandparents to stay hom
 
 ## Funkcjonalność w trakcie tworzenia / Features in Progress
 
-:pl:
+🇵🇱
 - Weryfikacja woluntariuszy przez numer telefonu
 - Ranking najczęściej zamawianych produktów
 
