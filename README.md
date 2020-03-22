@@ -58,16 +58,16 @@ The aim of the project is to solve the problems of elderly people during the epi
 🇵🇱
 W naszej aplikacji wyróżniliśmy dwa rodzaje użytkowników - seniora i wolontariusza.
 
-Senior - porozumiewa się z aplikacją za pomocą wiadomości SMS
+    Senior - porozumiewa się z aplikacją za pomocą wiadomości SMS
 
-Wolontariusz -  korzysta ze strony internetowej.
+    Wolontariusz -  korzysta ze strony internetowej.
 
 :gb:
 We have distinguished two types of users of our app - a senior and a volunteer.
 
-Senior - communicates through SMS
+    Senior - communicates through SMS
 
-Volunteer - communicates through web application
+    Volunteer - communicates through web application
 
 ## Motywacja / What is our motivation?
 <div align="center">
