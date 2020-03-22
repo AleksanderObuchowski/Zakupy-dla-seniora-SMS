@@ -1,6 +1,6 @@
 <div align="center">
 
-![zakupy sms dla seniora logo](https://gitlab.com/artifai-extended-edition/zakupy-dla-seniora-backend/-/raw/dev/src/zakupy_dla_seniora/static/logo.png)
+![zakupy sms dla seniora logo](src/zakupy_dla_seniora/static/logo.png)
 
 </div>
 
