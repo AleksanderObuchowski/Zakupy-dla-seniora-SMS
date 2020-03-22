@@ -25,7 +25,7 @@ creating a notice board, where seniors can ask for help with shopping
 
 ### Zobacz film / Watch the video
 
-| [![Youtube Video](https://i.imgur.com/84N10jd.png)](https://www.youtube.com/watch?v=Vd4gIQbLEVc) |[![Youtube Video](https://i.imgur.com/4ycbsWH.png)](https://www.youtube.com/watch?v=Vd4gIQbLEVc)|
+| [![Youtube Video](https://i.imgur.com/84N10jd.png)](https://www.youtube.com/watch?v=Vd4gIQbLEVc) |[![Youtube Video](https://i.imgur.com/4ycbsWH.png)](https://www.youtube.com/watch?v=rwfVx67YgNE)|
 |---|---|
 ---
 
@@ -140,11 +140,6 @@ Ever since the universities wewe closed, we advised our grandparents to stay hom
 
 ![PG](https://pg.edu.pl/documents/10607/18545618/pg_poziome_logo_kolor-300x212.jpg?t=1383222176436)
 </div>
-
-## FAQ
-
-- **How do I do *specifically* so and so?**
-    - No problem! Just do this.
 
 
 ## Installation
