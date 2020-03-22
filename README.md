@@ -129,6 +129,10 @@ Ever since the universities wewe closed, we advised our grandparents to stay hom
 - Social Media integration
 
 ---
+## Diagram Użycia / Use case
+
+| ![Usecase pl](https://i.imgur.com/DEQKeRp.png)]) |![Usecase en](https://i.imgur.com/EOAsvEJ.png)|
+|---|---|
 
 ## Team
 <div align="center">
