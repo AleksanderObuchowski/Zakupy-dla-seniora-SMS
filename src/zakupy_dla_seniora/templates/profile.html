@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zakupy dla seniora</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css"/>
+    <link rel='icon' href='{{ url_for('static', filename='delight.ico') }}' type='image/x-icon'
+    / >
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+
+    <style>
+        #mapid {
+            height: 100%;
+        }
+
+        #mapcard {
+            height: 85vh;
+            width: 100%;
+
+        }
+
+        .article {
+            background-color: #303030;
+
+        }
+
+        footer {
+            bottom: 0px; !important;
+            width: 100%;
+            padding-top: 15px;
+        }
+        .footer-card{
+            padding: 0px;
+
+        }
+    </style>
+</head>
+<body>
+<nav class="uk-card-default uk-margin-small uk-card-hover" uk-navbar>
+    <div class="uk-navbar-left">
+        <a href="/" class="uk-navbar-item uk-logo">
+            <img src="{{ url_for('static', filename='delight.svg') }}" style=" height:50px; ">
+            <p class="uk-margin-left">Zakupy dla seniora</p>
+        </a>
+
+        <div class="navbar-collapse" id="navbar_collapse">
+            <ul class="uk-navbar-nav">
+                <li class="uk-parent"><a href="/board_view">Ogłoszenia</a></li>
+                <li class="uk-parent"><a href="/leaderboard">Najlepsi wolontariusze</a></li>
+                <li class="uk-active"><a href="/profile_view">Profil</a></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+    <div class="uk-navbar-right">
+
+        <div class="uk-navbar-item">
+            <ul class="uk-navbar-nav">
+
+
+                <li>
+                    <button class="uk-button" href="#">Wyloguj</button>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<h1 class="uk-text-center">{{ data['data']['name'] }}</h1>
+<h3 class="uk-text-center">Liczba punktów : <span
+        class="uk-badge uk-text-large uk-margin-small-left uk-padding-small">{{ data['data']["points"] }}</span></h3>
+<div class="uk-container uk-margin-large-top" id="board" style="height: 100vh;">
+    <h3>Zamówienia realizowane przez ciebie:</h3>
+    {% for d in data['data']['placings'] %}
+        {% if not d['message_status'] == 'Done' %}
+            <div class="uk-margin uk-card uk-card-hover uk-card-default uk-card-body uk-margin-auto">
+                <h3 class="uk-card-title">{{ d['message_location'] }}</h3>
+                {% if not d['message_status'] == 'waiting for ending approval' %}
+                    <a href="/sent_end_placing?user_id=6&message_id={{ d['id'] }}" style="float: right;" align="right"
+                       class="uk-button uk-button-primary uk-margin-left">Zakończ
+                    </a>
+                {% endif %}
+
+                <p>{{ d['message_content'] }}</p>
+                {% if  d['message_precise_location'] %}
+                    <p> <span
+                            class="uk-label-success"
+                            style="padding: 5px;">Lokalizacja: {{ d['message_precise_location'] }}</span></p>
+                {% endif %}
+
+                {% if d['message_status'] == 'Waiting for address' %}
+                    <p><span
+                            class="uk-label-warning" style="padding: 5px;"> Status : Oczekiwanie na na potwierdzenie i podanie lokalizacji przez seniora</span>
+                    </p>
+                {% endif %}
+                {% if d['message_status'] == 'waiting for ending approval' %}
+                    <p><span
+                            class="uk-label-warning" style="padding: 5px;"> Status : Oczekiwanie na na potwierdzenie dostarczenia zakupów przez seniora</span>
+                    </p>
+                {% endif %}
+
+            </div>
+        {% endif %}
+    {% endfor %}
+    <h3>Zakończone zamówienia</h3>
+    {% for d in data['data']['placings'] %}
+        {% if d['message_status'] == 'Done' %}
+            <div class="uk-margin uk-card-default uk-card-body uk-margin-auto" style="background-color: #f8f8f8;">
+                <h3 class="uk-card-title">{{ d['message_location'] }}</h3>
+
+
+                <p>{{ d['message_content'] }}</p>
+
+
+                {% if d['message_status'] == 'Waiting for address' %}
+                    <p><span
+                            class="uk-label-warning" style="padding: 5px;"> Status : Oczekiwanie na na potwierdzenie i podanie lokalizacji przez seniora</span>
+                    </p>
+                {% endif %}
+                {% if d['message_status'] == 'waiting for ending approval' %}
+                    <p><span
+                            class="uk-label-warning" style="padding: 5px;"> Status : Oczekiwanie na na potwierdzenie dostarczenia zakupów przez seniora</span>
+                    </p>
+                {% endif %}
+
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+<footer id="page-footer" class="uk-margin uk-background-default" uk-sticky="bottom: true">
+    <h5 class="uk-text-center uk-margin-remove uk-margin-top">Made with <span style='font-size:20px; color: bl'>&#128567;</span>by <a href="http://artifai.pl/" class="uk-link-heading">Artifai Team</a> for Hack the Crisis 2020</h5>
+
+
+</footer><!--/footer#page-footer-->
+
+</body>
+</html>

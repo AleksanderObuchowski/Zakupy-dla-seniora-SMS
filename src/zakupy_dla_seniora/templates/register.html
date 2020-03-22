@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css"/>
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js"></script>
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+<style>
+        #mapid {
+            height: 100%;
+        }
+        #mapcard{
+            height: 85vh;
+            width: 100%;
+
+        }
+                footer {
+            /*position: absolute;*/
+            bottom: 0; !important;
+            width: 100%;
+            padding-top: 15px;
+        }
+        .footer-card{
+            padding: 0px;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="uk-container uk-container-small uk-position-relative">
+        {% if message %}
+        <div class="uk-alert-danger uk-alert" uk-alert>
+            <a class="uk-alert-close uk-icon uk-close" uk-close></a>
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+        <form method="POST" action="">
+            <div class="uk-margin" >
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: user"></span>
+                    {% if message %}
+                    <input class="uk-input uk-form-danger uk-form-width-medium" type="text" name="username" placeholder="Username">
+                    {% else %}
+                    <input class="uk-input uk-form-width-medium" type="text" name="username" placeholder="Username">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="uk-margin" >
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: user"></span>
+                    {% if message %}
+                    <input class="uk-input uk-form-danger uk-form-width-medium" type="email" name="email" placeholder="Email">
+                    {% else %}
+                    <input class="uk-input uk-form-width-medium" type="email" name="email" placeholder="Email">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="uk-margin" >
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                    {% if message %}
+                    <input class="uk-input uk-form-danger uk-form-width-medium" type="password" name="password" placeholder="Password">
+                    {% else %}
+                    <input class="uk-input uk-form-width-medium" type="password" name="password" placeholder="Password">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="uk-margin" >
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                    {% if message %}
+                    <input class="uk-input uk-form-danger uk-form-width-medium" type="password" name="password_again" placeholder="Password">
+                    {% else %}
+                    <input class="uk-input uk-form-width-medium" type="password" name="password_again" placeholder="Password">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="uk-margin" >
+                <input class="uk-input uk-form-width-small" type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+Flask==1.1.1
+Flask-RESTful==0.3.8
+Flask-SQLAlchemy==2.4.1
+Flask-Bcrypt==0.7.1
+Cython==0.29.15
+twilio==6.36.0
+mysqlclient==1.4.6
+DateTime==4.3
+requests==2.23.0
+Faker==4.0.2
+pandas==1.0.3
+https://github.com/spacy-pl/spaCy/archive/pl-release/lemmatizer-tagmap-and-tests.zip
+https://storage.googleapis.com/spacy-pl-public-models/pl_model-1.0.0.tar.gz

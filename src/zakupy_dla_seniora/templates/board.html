@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zakupy dla seniora</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css"/>
+    <link rel='icon' href='{{ url_for('static', filename='delight.ico') }}' type='image/x-icon'/ >
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js"></script>
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
+
+<style>
+        #mapid {
+            height: 100%;
+        }
+
+        #mapcard{
+            height: 75vh;
+
+        }
+
+        footer {
+            /*position: absolute;*/
+            bottom: 0; !important;
+            width: 100%;
+            padding-top: 15px;
+        }
+
+        .footer-card{
+            padding: 0px;
+
+        }
+    </style>
+</head>
+<body>
+    <nav class="uk-card-default uk-margin-small uk-card-hover" uk-navbar>
+        <div class="uk-navbar-left">
+            <a href="/" class="uk-navbar-item uk-logo">
+                <img src="{{ url_for('static', filename='delight.svg') }}" style=" height:50px; ">
+             <p class="uk-margin-left">Zakupy dla seniora</p>
+            </a>
+
+            <div class="navbar-collapse" id="navbar_collapse">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="">Ogłoszenia</a></li>
+                    <li class="uk-parent"><a href="/leaderboard">Najlepsi wolontariusze</a></li>
+                    <li class="uk-parent"><a href="/profile_view">Profil</a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="uk-navbar-right">
+
+            <div class="uk-navbar-item">
+                <ul class="uk-navbar-nav">
+
+
+                    <li>
+                        <button class="uk-button" href="#">Wyloguj</button>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+<div class="uk-child-width-1-2@l" uk-grid="">
+
+    <div class="uk-container" style="height: 70vh;">
+        <div class="uk-card-default  uk-card-body uk-padding-small uk-text-center" id="mapcard" style="padding: 5px;">
+            <div id="mapid"></div>
+        </div>
+    </div>
+
+    <div class="uk-container" id ="board" style="height: 90vh;overflow: scroll;">
+        {% for d in data['data'] %}
+            <div class="uk-margin uk-card uk-card-hover uk-card-default uk-card-body uk-margin-auto">
+                <h3 class="uk-card-title">{{ d['message_location'] }}</h3> <a href ="/take_order?user_id=1&message_id={{d['id']}}" style="float: right;" align="right" class="uk-button uk-button-primary uk-margin-left">Weź zlecenie</a>
+                <p>{{ d['message_content'] }}</p>
+
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+var Icon = L.icon({
+    iconUrl: "{{ url_for('static', filename='shopping-cart.svg') }}",
+
+    iconSize:     [50, 50], // size of the icon
+    iconAnchor:   [25, 25], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0, -30] // point from which the popup should open relative to the iconAnchor
+});
+
+    var mymap = L.map('mapid').setView([52.1009833, 19.100852], 7);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 30,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoiYXZpZW5pciIsImEiOiJjam9mbmduMWkwMTNwM2tyeDJnbmkwc2tkIn0.IDeZinspovU6WJFNTH4I-g'
+    }).addTo(mymap);
+
+    {% for d in data['data']%}
+    {#var circle = L.Icon([{{d['message_location_lat']}}, {{d['message_location_lon']}}], {}).bindPopup("{{ d['message_location'] }}").addTo(mymap);#}
+    var marker  =L.marker([{{d['message_location_lat']}}+(Math.random()-0.5)*0.005, {{d['message_location_lon']}}+(Math.random()-0.5)*0.005], {icon: Icon}).bindPopup("<h3>{{d['message_location'] }}</h3><p>{{ d['message_content'] }}</p>").addTo(mymap);
+    {% endfor %}
+mymap.on('moveend', function() {
+
+     display_shopping()
+
+});
+var data = {{ data['data'] |safe }}
+function display_shopping() {
+    board = document.getElementById("board");
+    html_str = ""
+    for (var d in data) {
+        var p =L.latLng(data[d]['message_location_lat'],data[d]['message_location_lon'])
+        if (mymap.getBounds().contains(p)){
+            str = "<div class=\"uk-margin uk-card uk-card-default uk-card-hover uk-card-body uk-margin-auto\"><h3 class=\"uk-card-title\">"+ data[d]['message_location']+"</h3> <a href =\"/take_order?user_id=6&message_id="+data[d]['id']+"\"style=\"float: right;\" align=\"right\" class=\"uk-button uk-button-primary uk-margin-left\">Weź zlecenie</a><p>" + data[d]['message_content'] + "</p></div>"
+            html_str += str
+        }
+    }
+
+    board.innerHTML= html_str;
+
+
+
+}
+
+</script>
+</body>
+</html>
