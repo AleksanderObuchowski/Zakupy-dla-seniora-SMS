@@ -136,7 +136,7 @@ Ever since the universities wewe closed, we advised our grandparents to stay hom
 | [![Aleksander Obuchowski](https://github.com/AleksanderObuchowski.png?size=150)](https://github.com/AleksanderObuchowski)    | [![Roman Karski](https://github.com/romankarski.png?size=150)](https://github.com/romankarski) | [![Bartosz Rydziński](https://github.com/Notheryne.png?size=150)](https://github.com/Notheryne)    | [![Mateusz Anikiej](https://github.com/AnakinM.png?size=150)](https://github.com/AnakinM) | [![Barbara Klaudel](https://github.com/A-Huli.png?size=150)](https://github.com/A-Huli)  |
 | <a href="https://github.com/AleksanderObuchowski" target="_blank">`Team Lead / NLP Research Engineer`</a> | <a href="https://github.com/romankarski" target="_blank">`Data Engineer / Backend Developer`</a> | <a href="https://github.com/Notheryne" target="_blank">`Backend Developer / Database Engineer`</a> | <a href="https://github.com/AnakinM" target="_blank">`Backend Developer / DevOps`</a> | <a href="https://github.com/A-Huli" target="_blank">`Research Engineer / Product Manager`</a> |
 
-![PG](https://pg.edu.pl/documents/10607/18545618/pg_poziome_logo_kolor-300x212.jpg?t=1383222176436)
+![KNIS](https://i.imgur.com/6Uxx8rD.png)
 </div>
 
 
