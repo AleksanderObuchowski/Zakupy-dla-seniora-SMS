@@ -16,8 +16,6 @@
 creating a notice board, where seniors can ask for help with shopping
 > via SMS and a volunteer, after contacting them will deliver it to their door.
 
-**[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)**
-
 
 <div align="center">
 
