@@ -7,7 +7,7 @@
 # Zakupy SMS dla Seniora
 
 🇵🇱
-> Celem aplikacji jest umożliwienie komunikacji pomiędzy seniorami a wolontariuszmi w prosty i intuicyjny dla obu stron sposób. 
+> Celem aplikacji jest umożliwienie komunikacji pomiędzy seniorami a wolontariuszami w prosty i intuicyjny dla obu stron sposób. 
 >Komunikacja odbywa się przy pomocy tablicy ogłoszeń, gdzie seniorzy za pośrednictwem SMS mogą poprosić o
 > zrobienie zakupów, a chętna osoba, po uprzednim kontakcie, przyniesie je pod drzwi.
 
@@ -29,7 +29,7 @@ creating a notice board, where seniors can ask for help with shopping
 
 </div>
 
-## Spis Treści / Table of Contents
+## Spis treści / Table of Contents
 
 
 - [Cel projektu / Intro & Goal](#cel-projektu--intro--goal)
@@ -79,7 +79,7 @@ We have distinguished two types of users of our app - a senior and a volunteer.
 Gdy tylko zamknięto uniwersytety, prosiliśmy naszych dziadków, by unikali wychodzenia na zewnątrz i troszczyliśmy się o ich potrzeby. Robiliśmy zakupy, wysyłaliśmy listy, kupowaliśmy leki i opłacaliśmy rachunki. Przez cały czas jednak krążyła nam po głowie myśl: "a co z osobami starszymi, które nie mają krewnych na wyciągnięcie ręki?". Mając cały czas na uwadze ten problem, dołączyliśmy do hackathonu i bez zbędnych ceregieli przystąpiliśmy do pracy.
 
 :gb:
-Ever since the universities wewe closed, we advised our grandparents to stay home and made sure all their needs are satisfied. We did the shopping, sent letters, bought medicines and paid the bills. But all this time we were haunted by a thought: how do the elders, whose families leave far away from them cope? With that idea floating in mind, we found the information about the hackathon and without further ado, we put the idea into practice.
+Ever since the universities were closed, we advised our grandparents to stay home and made sure all their needs are satisfied. We did the shopping, sent letters, bought medicines and paid the bills. But all this time we were haunted by a thought: how do the elders, whose families live far away from them, cope? With that idea floating in mind, we found the information about the hackathon and without further ado, we put the idea into practice.
 
 
 ## Funkcjonalność / Features
@@ -98,27 +98,27 @@ Ever since the universities wewe closed, we advised our grandparents to stay hom
 :gb:
 - Receiving SMS messages
 - Localization detection based on dependency parser
-- Visualization of message locations
-- Ability to take on a order
+- Visualization of message localization
+- Ability to take on an order
 - Leader board for most active volunteers 
 - Rating system
-- Registration and login of volunteer
+- Registration and login for volunteers
 - System allowing integration with other applications (REST API)
 - Responsive design
 
 ## Funkcjonalność w trakcie tworzenia / Features in Progress
 
 🇵🇱
-- Weryfikacja woluntariuszy przez numer telefonu
+- Weryfikacja wolontariuszy przez numer telefonu
 - Ranking najczęściej zamawianych produktów
 
 :gb:
 - Phone number verification for volunteers
 - Ranking of most popular products
 
-## Planowana Funkcjonalność / Planned Features
+## Zaplanowana funkcjonalność / Planned Features
 
-:flag-pl:
+🇵🇱
 - Płatność SMS
 - Aplikacja mobilna dla wolontariuszy
 - Możliwość składania zamówień za pomocą asystenta głosowego
@@ -133,9 +133,9 @@ Ever since the universities wewe closed, we advised our grandparents to stay hom
 - Social Media integration
 
 ---
-## Diagram Użycia / Use case
+## Diagram użycia / Use Case
 
-| ![Usecase pl](https://i.imgur.com/DEQKeRp.png) |![Usecase en](https://i.imgur.com/EOAsvEJ.png)|
+| ![Usecase pl](https://i.imgur.com/zlGytNt.png) |![Usecase en](https://i.imgur.com/EOAsvEJ.png)|
 |---|---|
 
 ## Team
@@ -153,7 +153,7 @@ Ever since the universities wewe closed, we advised our grandparents to stay hom
 ## Installation
 
 ### Install mysql
-To install mysql follow instructions of this site:
+To install mysql follow instructions on this site:
 [How to install mysql on ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04)
 Then you need to create database and user for the app. If you are not in the mysql shell use `sudo mysql` to enter mysql command line.
 Next run \
@@ -188,7 +188,7 @@ class Config:
 To generate your secret key run python shell with `python3` command and then `import secrets`.   
 Then type `secrets.token_hex(16)` and hit enter. Now copy your secret key and paste it into `config.py`file as `SECRET_KEY`.
 
-### Create virtual environment
+### Create Confirmation of shopping deliveryvirtual environment
 You should use venv to develop this application. To start virtual environment for this project make sure you are in root folder
 of `zakupy-dla-seniora` and use command `python3 -m venv venv`. Then use `source venv/bin/activate` to activate your virtual environment.
 
