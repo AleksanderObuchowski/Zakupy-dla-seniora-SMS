@@ -48,21 +48,25 @@ creating a notice board, where seniors can ask for help with shopping
 ## Cel projektu / Intro & Goal
 
 🇵🇱
-Celem projektu jest rozwiązanie problemów osób starszych w trakcie epidemii.  W ciągu ostatnich dni tysiące wolontariuszy wyraziło chęć pomocy np. w zrobieniu zakupów na internetowych serwisach społecznościowych. Niestety większość osób starszych, będących grupą docelową tego rodzaju usługi, korzysta wyłącznie z tradycyjnych mediów, takich jak smsy czy gazeta. Założeniem naszej platformy jest  stworzenie pomostu pomiędzy dwiema grupami społecznymi korzystającym z rozbieżnych środków komunikacji. "Zakupy dla seniora" to aplikacja łącząca seniorów i wolontariuszy, w szybki i intuicyjny sposób, bez pośredników.
+Celem projektu jest rozwiązanie problemów osób starszych w trakcie epidemii.  W ciągu ostatnich dni tysiące wolontariuszy wyraziło chęć pomocy np. w zrobieniu zakupów. Niestety większość osób starszych, będących grupą docelową tego rodzaju usługi, korzysta wyłącznie z tradycyjnych mediów, takich jak smsy czy gazeta. Założeniem naszej platformy jest  stworzenie pomostu pomiędzy dwiema grupami społecznymi korzystającymi z rozbieżnych środków komunikacji. "Zakupy sms dla seniora" to aplikacja łącząca seniorów i wolontariuszy, w szybki i intuicyjny sposób, bez pośredników.
 
 :gb:
-The aim of the project is to solve the problems of elderly people during the epidemy. In the last few days lots of volunteers offered to help, eg. in doing shopping, via social media. Unfortunately the majority of the elders, who are the target group for this kind of service, use only traditional media, such as text messages or newspapers. Our idea is to create a bridge between two distinct social groups, utilizing different means of communication.  “SMS Shopping for a Senior” is an app bringing together volunteers and seniors in a fast and intuitive way, without intermediaries.
+The aim of the project is to solve the problems of elderly people during the epidemy. In the last few days lots of volunteers offered to help, eg. by doing shopping. Unfortunately the majority of the elders, who are the target group for this kind of service, use only traditional media, such as text messages or newspapers. Our goal is to create a bridge between two distinct social groups, utilizing different means of communication.  “SMS Shopping for a Senior” is an app bringing together volunteers and seniors in a fast and intuitive way, without intermediaries.
 
 ## Grupa docelowa / Who is it for?
 
 🇵🇱
 W naszej aplikacji wyróżniliśmy dwa rodzaje użytkowników - seniora i wolontariusza.
+
 Senior - porozumiewa się z aplikacją za pomocą wiadomości SMS
+
 Wolontariusz -  korzysta ze strony internetowej.
 
 :gb:
 We have distinguished two types of users of our app - a senior and a volunteer.
+
 Senior - communicates through SMS
+
 Volunteer - communicates through web application
 
 ## Motywacja / What is our motivation?
@@ -131,7 +135,7 @@ Ever since the universities wewe closed, we advised our grandparents to stay hom
 ---
 ## Diagram Użycia / Use case
 
-| ![Usecase pl](https://i.imgur.com/DEQKeRp.png)]) |![Usecase en](https://i.imgur.com/EOAsvEJ.png)|
+| ![Usecase pl](https://i.imgur.com/DEQKeRp.png) |![Usecase en](https://i.imgur.com/EOAsvEJ.png)|
 |---|---|
 
 ## Team
