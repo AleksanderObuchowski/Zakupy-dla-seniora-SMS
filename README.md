@@ -102,7 +102,7 @@ Ever since the universities wewe closed, we advised our grandparents to stay hom
 - System allowing integration with other applications (REST API)
 - Responsive design
 
-## Tworzone Funkcjonalność / Features in Progress
+## Funkcjonalność w trakcie tworzenia / Features in Progress
 
 :pl:
 - Weryfikacja woluntariuszy przez numer telefonu
@@ -112,7 +112,7 @@ Ever since the universities wewe closed, we advised our grandparents to stay hom
 - Phone number verification for volunteers
 - Ranking of most popular products
 
-## Planowane Funkcjonalność / Planned Features
+## Planowana Funkcjonalność / Planned Features
 
 :pl:
 - Płatność SMS
