@@ -19,10 +19,17 @@ creating a notice board, where seniors can ask for help with shopping
 **[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)**
 
 
+<div align="center">
 
 ![Strona startowa wolontariusza](https://i.imgur.com/Gn0QCCZ.png)
 
+### Zobacz film / Watch the video
+
+| [![Youtube Video](https://i.imgur.com/84N10jd.png)](https://www.youtube.com/watch?v=Vd4gIQbLEVc) |[![Youtube Video](https://i.imgur.com/4ycbsWH.png)](https://www.youtube.com/watch?v=Vd4gIQbLEVc)|
+|---|---|
 ---
+
+</div>
 
 ## Spis Treści / Table of Contents
 
@@ -131,6 +138,7 @@ Ever since the universities wewe closed, we advised our grandparents to stay hom
 | [![Aleksander Obuchowski](https://github.com/AleksanderObuchowski.png?size=150)](https://github.com/AleksanderObuchowski)    | [![Roman Karski](https://github.com/romankarski.png?size=150)](https://github.com/romankarski) | [![Bartosz Rydziński](https://github.com/Notheryne.png?size=150)](https://github.com/Notheryne)    | [![Mateusz Anikiej](https://github.com/AnakinM.png?size=150)](https://github.com/AnakinM) | [![Barbara Klaudel](https://github.com/A-Huli.png?size=150)](https://github.com/A-Huli)  |
 | <a href="https://github.com/AleksanderObuchowski" target="_blank">`Team Lead / NLP Research Engineer`</a> | <a href="https://github.com/romankarski" target="_blank">`Data Engineer / Backend Developer`</a> | <a href="https://github.com/Notheryne" target="_blank">`Backend Developer / Database Engineer`</a> | <a href="https://github.com/AnakinM" target="_blank">`Backend Developer / DevOps`</a> | <a href="https://github.com/A-Huli" target="_blank">`Research Engineer / Product Manager`</a> |
 
+![PG](https://pg.edu.pl/documents/10607/18545618/pg_poziome_logo_kolor-300x212.jpg?t=1383222176436)
 </div>
 
 ## FAQ
