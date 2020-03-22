@@ -58,16 +58,16 @@ The aim of the project is to solve the problems of elderly people during the epi
 🇵🇱
 W naszej aplikacji wyróżniliśmy dwa rodzaje użytkowników - seniora i wolontariusza.
 
-    Senior - porozumiewa się z aplikacją za pomocą wiadomości SMS
+* Senior - porozumiewa się z aplikacją za pomocą wiadomości SMS
 
-    Wolontariusz -  korzysta ze strony internetowej.
+* Wolontariusz -  korzysta ze strony internetowej.
 
 :gb:
 We have distinguished two types of users of our app - a senior and a volunteer.
 
-    Senior - communicates through SMS
+* Senior - communicates through SMS
 
-    Volunteer - communicates through web application
+* Volunteer - communicates through web application
 
 ## Motywacja / What is our motivation?
 <div align="center">
@@ -76,7 +76,7 @@ We have distinguished two types of users of our app - a senior and a volunteer.
 </div>
 
 🇵🇱
-Gdy tylko zamknięto uniwersytety, prosiliśmy naszych dziadków, by unikali wychodzenia na zewnątrz i troszczyliśmy się o ich potrzeby. Robiliśmy zakupy, wysyłaliśmy listy, kupowaliśmy leki i opłacaliśmy rachunki. Przez cały czas jednak krążyła nam po głowie myśl: "a co z osobami starszymi, które nie mają krewnych na wyciągnięcie ręki?"." Mając cały czas na uwadze ten problem, dołączyliśmy do hackathonu i bez zbędnych ceregieli przystąpiliśmy do pracy.
+Gdy tylko zamknięto uniwersytety, prosiliśmy naszych dziadków, by unikali wychodzenia na zewnątrz i troszczyliśmy się o ich potrzeby. Robiliśmy zakupy, wysyłaliśmy listy, kupowaliśmy leki i opłacaliśmy rachunki. Przez cały czas jednak krążyła nam po głowie myśl: "a co z osobami starszymi, które nie mają krewnych na wyciągnięcie ręki?". Mając cały czas na uwadze ten problem, dołączyliśmy do hackathonu i bez zbędnych ceregieli przystąpiliśmy do pracy.
 
 :gb:
 Ever since the universities wewe closed, we advised our grandparents to stay home and made sure all their needs are satisfied. We did the shopping, sent letters, bought medicines and paid the bills. But all this time we were haunted by a thought: how do the elders, whose families leave far away from them cope? With that idea floating in mind, we found the information about the hackathon and without further ado, we put the idea into practice.
