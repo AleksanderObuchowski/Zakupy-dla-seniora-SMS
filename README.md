@@ -1,7 +1,7 @@
 <div align="center">
 
 ![zakupy sms dla seniora logo](src/zakupy_dla_seniora/static/logo.png)
-
+![govtech](https://i.imgur.com/TaV0bSw.png)
 </div>
 
 # Zakupy SMS dla Seniora
