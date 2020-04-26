@@ -94,6 +94,9 @@ Ever since the universities were closed, we advised our grandparents to stay hom
 - Rejestracja oraz logowanie wolontariusza
 - System umożliwiający integrację z innymi aplikacjami (REST API)
 - Responsywny design
+- Zarządanie organizacjami
+- Dodawanie wolontariuszy
+- Ręczne dodawanie wiedomości przez wolontariuszy
 
 :gb:
 - Receiving SMS messages
@@ -105,15 +108,15 @@ Ever since the universities were closed, we advised our grandparents to stay hom
 - Registration and login for volunteers
 - System allowing integration with other applications (REST API)
 - Responsive design
-
+- Organization management
+- Adding volunteers
+- Manual messages posting by volunteers
 ## Funkcjonalność w trakcie tworzenia / Features in Progress
-
+![](https://media.discordapp.net/attachments/689575084171591848/704094557180133456/unknown.png?width=1182&height=665)
 🇵🇱
-- Weryfikacja wolontariuszy przez numer telefonu
 - Ranking najczęściej zamawianych produktów
 
 :gb:
-- Phone number verification for volunteers
 - Ranking of most popular products
 
 ## Zaplanowana funkcjonalność / Planned Features
@@ -133,10 +136,7 @@ Ever since the universities were closed, we advised our grandparents to stay hom
 - Social Media integration
 
 ---
-## Diagram użycia / Use Case
 
-| ![Usecase pl](https://i.imgur.com/zlGytNt.png) |![Usecase en](https://i.imgur.com/EOAsvEJ.png)|
-|---|---|
 
 ## Team
 <div align="center">
