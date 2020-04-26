@@ -19,7 +19,7 @@ creating a notice board, where seniors can ask for help with shopping
 
 <div align="center">
 
-![Strona startowa wolontariusza](https://i.imgur.com/Gn0QCCZ.png)
+![Strona startowa wolontariusza](https://media.discordapp.net/attachments/704104141160448010/704108426074128425/unknown.png?width=1182&height=665)
 
 ### Zobacz film / Watch the video
 
@@ -111,8 +111,16 @@ Ever since the universities were closed, we advised our grandparents to stay hom
 - Organization management
 - Adding volunteers
 - Manual messages posting by volunteers
+
+|Organization management|
+|:---:|
+| ![](https://media.discordapp.net/attachments/704104141160448010/704104163675734096/unknown.png?width=1182&height=665) |
+
+|Adding Employees and Volunteers|
+|:---:|
+| ![](https://media.discordapp.net/attachments/704104141160448010/704104615410532413/unknown.png?width=1182&height=665) |
+
 ## Funkcjonalność w trakcie tworzenia / Features in Progress
-![](https://media.discordapp.net/attachments/689575084171591848/704094557180133456/unknown.png?width=1182&height=665)
 🇵🇱
 - Ranking najczęściej zamawianych produktów
 
