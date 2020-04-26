@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css"/>
+    <link rel='icon' href="{{ url_for('static', filename='delight.ico') }}" type='image/x-icon'/>
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin="">
+    </script>
+
+</head>
+<!-- uikit css -->
+<style>
+    .divider {
+        border-right: 1px solid #ccc;
+        padding: 0 55px;
+    }
+
+    .divider:last-child {
+        border-right: none;
+    }
+
+    p.uk-text-center.uk-text-large {
+        color: #fff;
+        opacity: 1.0;
+    }
+
+    @media (max-width: 800px ) {
+        .divider {
+            border-right: none;
+            border-top: 1px solid #e5e5e5;
+
+            padding: 15px;
+        }
+
+        .divider:first-child {
+            border-top: none;
+        }
+    }
+
+    #hero {
+    {#min-width: calc(80vh);#}{#!important;#}
+    }
+
+    .shadow {
+        text-shadow: 1px 0 10px #000000;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        display: inline-block;
+        clear: both;
+        padding: 20px;
+        border-radius: 30px;
+        margin-bottom: 2px;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .him {
+        background: #eee;
+        float: left;
+    }
+
+    .me {
+        float: right;
+        background: #0084ff;
+        color: #fff;
+    }
+
+    .him + .me {
+        border-bottom-right-radius: 5px;
+    }
+
+    .me + .me {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .conversation-box {
+        margin-left: 20%;
+        margin-right: 20%;
+
+    }
+</style>
+<nav class="uk-card-default uk-card-hover" uk-navbar>
+    <div class="uk-navbar-left">
+
+        <a href="/" class="uk-navbar-item uk-logo">
+            <img src="delight.svg" style=" height:50px; ">
+            <p class="uk-margin-left">SMS Shopping for Seniors</p>
+        </a>
+
+
+    </div>
+</nav>
+
+
+<section id="hero" uk-height-viewport="offset-top: true;offset-bottom:200px"
+         class="uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"
+         data-src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+         uk-img>
+
+    <div class="uk-section uk-align-center uk-width-2-3@m uk-padding ">
+        <div uk-parallax="target: h1,p; blur: 0,10;">
+            <h1 class="uk-text-center uk-heading-large shadow uk-text-bold">SMS shopping for senior</h1>
+            <h2 class="uk-text-center uk-heading-small shadow uk-text-bold ">At the time of isolation we bring together the generations</h2>
+        </div>
+    </div>
+    <hr>
+</section>
+<section class="uk-text-center uk-padding-large">
+    <h1 class="uk-heading-bullet uk-text-bold">About The Project</h1>
+    <div class="uk-padding-large uk-text-left">
+        <p uk-scrollspy="cls: uk-animation-slide-left; repeat: false ;delay: 500;" class="uk-text-large">
+            The main goal of our application is and enable communication between seniors and volunteers in simple and intuitive
+            way for both sides.
+        </p>
+
+        <p uk-scrollspy="cls: uk-animation-slide-left; repeat: false; delay: 1000;" class="uk-text-large">
+            Communication is establiszed via annnouncment board where senior is able to request for shopping via SMS and volunteer, after
+            contacting with senior, will bring them just to senior\'s door.
+        </p>
+    </div>
+    <h1 class="uk-heading-bullet uk-text-bold">How it works</h1>
+    <h2 uk-scrollspy="cls: uk-animation-slide-left; repeat: false; delay: 1000;">1. Senior send SMS with a list of needed grocery on provided
+    telephone number.
+    </h2>
+
+    <section class="uk-height-small uk-text-left uk-padding-top">
+        <div class="conversation-box">
+            <ul>
+                <li uk-scrollspy="cls: uk-animation-slide-right; repeat: false; delay: 1000;" class="me">Hi, I need 2l of water, 3 rolls,
+                and 1 l of oil, i live in Gansk Zaspa
+
+                </li>
+                <li uk-scrollspy="cls: uk-animation-slide-left; repeat: false; delay: 1000;" class="him">'Your request has been collected. We
+                are waiting for someone to take care of it
+
+                </li>
+
+            </ul>
+        </div>
+    </section>
+    <section class='uk-text-center uk-margin-top uk-padding-large'>
+        <h2 class="uk-margin-top" uk-scrollspy="cls: uk-animation-slide-left; repeat: false; delay: 1000;"> 2. The volunteer finds the
+        advertisement on the map and accepts the request
+
+        </h2>
+    </section>
+    <img uk-scrollspy="cls: uk-animation-slide-left; repeat: false; delay: 1000;"
+         src="apka_mapka.png">
+    <section class='uk-text-center uk-margin-top uk-padding-large'>
+        <h2 class="uk-margin-top" uk-scrollspy="cls: uk-animation-slide-left; repeat: false; delay: 500;">3. Volunteer provides the
+        needed products
+        </h2>
+    </section>
+    <img uk-scrollspy="cls: uk-animation-slide-left; repeat: false; delay: 1000;"
+         src="delivery.png">
+    <h2 uk-scrollspy="cls: uk-animation-slide-left; repeat: false; delay: 1000;">4. Delivery message has been sent to the senior
+    </h2>
+    <section class="uk-height-small uk-text-left uk-padding-top">
+        <div class="conversation-box">
+            <ul>
+                <li uk-scrollspy="cls: uk-animation-slide-right; repeat: false; delay: 1000;" class="him">Your products should already be
+                delivered, do you have any comments ?
+
+                </li>
+                <li uk-scrollspy="cls: uk-animation-slide-left; repeat: false; delay: 1000;"
+                    class="me">Everything was perfect :)
+
+                </li>
+
+            </ul>
+        </div>
+    </section>
+    <h1 class="uk-heading-bullet uk-text-bold">Are you a representative of an organization that runs volunteering?</h1>
+    <section id="contact" uk-height-viewport class="uk-flex uk-flex-center uk-flex-middle uk-margin-medium">
+        <div class="uk-container ">
+            <div class="uk-section uk-padding uk-box-shadow-medium"
+                 uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-grid-medium; delay: 500; repeat: false">
+                <div class="uk-grid-medium uk-align-center" uk-grid>
+                    <h2 class="uk-heading-medium uk-margin-top uk-text-center">Contact with us</h2>
+                    <div class="uk-divider-small uk-text-center"></div>
+                    <div class="uk-width-2-3@s uk-width-1-1 uk-align-center">
+                        <form action="" class="uk-grid-small" uk-grid>
+                            <div class="uk-width-1-5@s uk-width-1-1 ">
+                                <label for="fname">Name</label>
+                            </div>
+                            <div class="uk-width-4-5@s uk-width-1-1 ">
+                                <input placeholder="Jan" type="text" name="fname" id="fname" class="uk-input">
+                            </div>
+                            <div class="uk-width-1-5@s uk-width-1-1 ">
+                                <label for="lname">Surname</label>
+                            </div>
+                            <div class="uk-width-4-5@s uk-width-1-1 ">
+                                <input placeholder="Kowalski" type="text" name="lname" id="lname" class="uk-input">
+                            </div>
+                            <div class="uk-width-1-5@s uk-width-1-1">
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="uk-width-4-5@s uk-width-1-1 ">
+                                <input placeholder="jankowalski@example.com" type="email" name="email" id="email"
+                                       class="uk-input">
+                            </div>
+                            <div class="uk-width-1-5@s uk-width-1-1 ">
+                                <label for="message">Message</label>
+                            </div>
+                            <div class="uk-width-4-5@s uk-width-1-1 ">
+                                <textarea name="message" id="message" rows="3" class="uk-textarea"
+                                          placeholder="Hello, "></textarea>
+                            </div>
+                            <div class="uk-width-4-5@s uk-align-right uk-margin-auto-left">
+                                <button type="submit" class=" uk-button uk-button-primary">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    </body>
+    <footer id="page-footer" class="uk-margin uk-background-default" uk-sticky="bottom: true">
+        <h5 class="uk-text-center uk-margin-remove uk-margin-top">Made with <span style='font-size:20px; color: bl'>&#128567;</span>
+            by <a href="http://artifai.pl/" class="uk-link-heading">Artifai Team</a> with support from <img
+                    src="https://govtech.gov.pl/wp-content/themes/auberge/assets/images/svg/govtech_Polska_logo_black.svg"
+                    style="width: 100px"></h5>
+
+
+    </footer>
+</html>
