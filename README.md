@@ -97,6 +97,7 @@ Ever since the universities were closed, we advised our grandparents to stay hom
 - Zarządanie organizacjami
 - Dodawanie wolontariuszy
 - Ręczne dodawanie wiedomości przez wolontariuszy
+- Wielojęzyczność
 
 :gb:
 - Receiving SMS messages
@@ -111,6 +112,7 @@ Ever since the universities were closed, we advised our grandparents to stay hom
 - Organization management
 - Adding volunteers
 - Manual messages posting by volunteers
+- Multilinguality
 
 |Organization management|
 |:---:|
@@ -119,6 +121,10 @@ Ever since the universities were closed, we advised our grandparents to stay hom
 |Adding Employees and Volunteers|
 |:---:|
 | ![](https://media.discordapp.net/attachments/704104141160448010/704104615410532413/unknown.png?width=1182&height=665) |
+
+|Profile view|
+|:---:|
+| ![](https://media.discordapp.net/attachments/704104141160448010/704112139412963388/unknown.png?width=832&height=468) |
 
 ## Funkcjonalność w trakcie tworzenia / Features in Progress
 🇵🇱
