@@ -164,13 +164,14 @@ Ever since the universities were closed, we advised our grandparents to stay hom
 </div>
 
 
-## Installation
+# Installation
 
 ### Install mysql
+
 To install mysql follow instructions on this site:
-[How to install mysql on ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04)
-Then you need to create database and user for the app. If you are not in the mysql shell use `sudo mysql` to enter mysql command line.
-Next run \
+[How to install mysql on ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04) \
+After installation you need to create database and user for the app. Open terminal and use `sudo mysql` to enter mysql command line.
+Then run \
 `CREATE DATABASE zakupy_dla_seniora_db CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;`\
 And then you need to create new user by running   
 `CREATE USER 'your_user_name'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';`   
@@ -178,43 +179,68 @@ with your password.
 Finally, grant your user privileges to run queries on created database:   
 `GRANT ALL PRIVILEGES ON zakupy_dla_seniora_db.* TO 'your_user_name'@'localhost';`
 
-### Create config file
-Application is using __config.py__ file for flack variables initialization (like database connection string). 
-This file should be placed in `/src/zakupy_dla_seniora/config.py` and should be defined as follows:
+### Install pyicu
 
-```python
-mysql_user_name = '' # put your mysql user name
-mysql_user_password = ''  # put your mysql user password
-mysql_server = 'localhost'
-mysql_database = 'zakupy_dla_seniora_db'
+To install pyicu follow instructions on this site:
+[PyICU - PyPi](https://pypi.org/project/PyICU/) \
+You may need to install some dependencies like:
 
-twilio_sid = ''  # put your twilio sid
-twilio_auth_token = ''  # put your twilio auth_token
-twilio_phone = '+' # put your twilio phone number
-
-class Config:
-    SECRET_KEY = '' # put your secret key
-    SQLALCHEMY_DATABASE_URI = f'mysql://{mysql_user_name}:{mysql_user_password}@{mysql_server}/{mysql_database}?charset=utf8mb4'
-    SQLALCHEMY_TRACK_MODIFICATIONS = True
+```bash
+sudo apt-get install libicu-dev
+sudo apt-get install g++
 ```
 
-### Generate your secret key
-To generate your secret key run python shell with `python3` command and then `import secrets`.   
-Then type `secrets.token_hex(16)` and hit enter. Now copy your secret key and paste it into `config.py`file as `SECRET_KEY`.
+If anything fails in the installation follow the steps given by the installer.
 
-### Create Confirmation of shopping deliveryvirtual environment
+### Create virtual environment
+
 You should use venv to develop this application. To start virtual environment for this project make sure you are in root folder
 of `zakupy-dla-seniora` and use command `python3 -m venv venv`. Then use `source venv/bin/activate` to activate your virtual environment.
 
 ### Install requirements
+
 When you already have your virtual environment activated use `pip3 install -r requirements.txt` to install all dependencies.
 
-### For Mac OS
-You should paste it in terminal for exporting dynamic library to avoid error (*..darwin..*) : 'export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/:$DYLD_LIBRARY_PATH'
+
+### Create config file
+
+Application is using __config.py__ file for flask variables initialization (like database connection string). 
+This file should be placed in `/zakupy_dla_seniora/config.py` and should be defined as follows:
+
+```python
+mysql_user_name = '' # put your mysql artifai user name
+mysql_user_password = ''  # put your mysql artifai user password
+mysql_server = '' # put your mysql host (ex. localhost)
+mysql_database = 'zakupy_dla_seniora_db' # your database name
+
+artifai_admin_username = '' # default admin username
+artifai_user_username = '' # default user username
+artifai_volunteer_username = '' # default volunteer username
+artifai_admin_password = '' # default accounts password
+
+twilio_sid = '' # twilio sid token
+twilio_auth_token = '' # twilio auth token
+twilio_phone = '' # twilio phone number
+
+geocoder_url = 'https://us1.locationiq.com/v1/search.php'
+geocoder_api = '' # geocoder api code
+
+
+class Config:
+    SECRET_KEY = ''  # put your secret key
+    SQLALCHEMY_DATABASE_URI = f'mysql://{mysql_user_name}:{mysql_user_password}@{mysql_server}/{mysql_database}?charset=utf8mb4'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    LANGUAGES = ['en', 'de', 'pl']
+```
+
+### Generate your secret key
+
+To generate your secret key run python shell with `python3` command and then `import secrets`.   
+Then type `secrets.token_hex(16)` and hit enter. Now copy your secret key and paste it into `config.py`file as `SECRET_KEY`.
 
 ### Run app
-Now to run the app navigate to `/src/` and use command `python3 run.py`
 
+Now to run the app navigate to app home folder and use command `python3 run.py`.
 
 ---
 
