@@ -6,7 +6,7 @@ Cython==0.29.15
 twilio==6.36.0
 mysqlclient==1.4.6
 DateTime==4.3
-requests==2.23.0
+requests==2.31.0
 Faker==4.0.2
 pandas==1.0.3
 https://github.com/spacy-pl/spaCy/archive/pl-release/lemmatizer-tagmap-and-tests.zip
